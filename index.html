@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClearMyRide - Clear Tickets & Complete Your MD Renewal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sky-top: #3BA7FF;
+            --sky-bottom: #0A57FF;
+            --check-green: #3DDC84;
+            --white: #FFFFFF;
+            --charcoal: #12161C;
+            --light-gray: #F8F9FA;
+            --border-gray: #E9ECEF;
+            --error-red: #FF6B6B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1.5" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, var(--sky-top) 0%, var(--sky-bottom) 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1.1;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo::after {
+            content: '✓';
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background: var(--check-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .service-toggle {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 8px;
+            margin: 30px auto;
+            max-width: 400px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-option {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: var(--white);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-option.active {
+            background: var(--white);
+            color: var(--sky-bottom);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .cta-button {
+            background: var(--check-green);
+            color: var(--charcoal);
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(61, 220, 132, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(61, 220, 132, 0.4);
+        }
+
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .disclaimer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .step {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--sky-top), var(--sky-bottom));
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .step h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--charcoal);
+        }
+
+        .step p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .benefit-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--check-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-size: 18px;
+        }
+
+        .benefit h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--charcoal);
+        }
+
+        .benefit p {
+            color: #6c757d;
+            font-size: 0.95rem;
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background: var(--light-gray);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .form-subtitle {
+            text-align: center;
+            color: #6c757d;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--sky-bottom);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .conditional-fields {
+            display: none;
+        }
+
+        .conditional-fields.active {
+            display: block;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: linear-gradient(135deg, var(--sky-top), var(--sky-bottom));
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(10, 87, 255, 0.3);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .message {
+            display: none;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .message.success {
+            background: var(--check-green);
+            color: white;
+        }
+
+        .message.error {
+            background: var(--error-red);
+            color: white;
+        }
+
+        .privacy-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 20px;
+        }
+
+        /* Survey Modal */
+        .survey-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .survey-modal.active {
+            display: flex;
+        }
+
+        .survey-content {
+            background: var(--white);
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .survey-header h3 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .survey-header p {
+            color: #6c757d;
+            margin-bottom: 25px;
+        }
+
+        .survey-question {
+            margin-bottom: 20px;
+        }
+
+        .survey-question label {
+            display: block;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 10px;
+        }
+
+        .survey-toggles {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .survey-toggle {
+            padding: 12px 16px;
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--charcoal);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .survey-toggle:hover {
+            border-color: var(--sky-bottom);
+            background: rgba(58, 167, 255, 0.1);
+        }
+
+        .survey-toggle.active {
+            border-color: var(--sky-bottom);
+            background: var(--sky-bottom);
+            color: var(--white);
+        }
+
+        .survey-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .survey-skip {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--border-gray);
+            border-radius: 8px;
+            background: var(--white);
+            color: var(--charcoal);
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .survey-skip:hover {
+            background: var(--light-gray);
+        }
+
+        .survey-submit {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--sky-top), var(--sky-bottom));
+            color: var(--white);
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .survey-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(10, 87, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 40px 0;
+            background: var(--charcoal);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .form-container {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-badges {
+                gap: 20px;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .survey-toggles {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="logo">
+                    Clear<br>MyRide
+                </div>
+                
+                <h1>Can't Renew Your Tags or License Because of Tickets or Flags?</h1>
+                <p>We clear violations across all MD jurisdictions and complete your renewal — end-to-end.</p>
+                
+                <div class="service-toggle">
+                    <button type="button" class="toggle-option active" data-service="tags">
+                        Tag/Registration Renewal
+                    </button>
+                    <button type="button" class="toggle-option" data-service="license">
+                        Driver's License Renewal
+                    </button>
+                </div>
+                
+                <button class="cta-button" onclick="scrollToForm()">Start My Renewal</button>
+                
+                <div class="trust-badges">
+                    <div class="trust-badge">
+                        <span>🔒</span> Secure
+                    </div>
+                    <div class="trust-badge">
+                        <span>🏛️</span> Maryland-focused
+                    </div>
+                    <div class="trust-badge">
+                        <span>✅</span> Licensed partner at launch
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    We are not the MVA; we work with the MVA and licensed Tag & Title partners.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tell Us What's Blocking You</h3>
+                    <p>Choose Tags or License Renewal, enter your vehicle/license info, and let us know about any tickets, tolls, or flags.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Clear the Roadblocks</h3>
+                    <p>Our system checks across agencies — parking tickets, EZPass, court fines, emissions, and insurance lapses. We resolve or guide you through payment/disputes so the MVA clears your record. You'll track the resolution of all your citations and flags on your personal dashboard, so you know where we are at every step in the process.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>We Complete Your Renewal</h3>
+                    <p>Once your record is cleared, we process your renewal through our licensed Tag & Title partner. You'll receive your new sticker, registration card, or driver's license delivered directly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <h2 class="section-title">Why Choose ClearMyRide?</h2>
+            <div class="benefits-grid">
+                <div class="benefit">
+                    <div class="benefit-icon">⏰</div>
+                    <div>
+                        <h4>Save Hours of Calls and Confusion</h4>
+                        <p>No more bouncing between agencies or waiting on hold. We handle all the coordination for you.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🔄</div>
+                    <div>
+                        <h4>One Secure Process</h4>
+                        <p>Single payment, single process. No juggling multiple agencies or keeping track of different systems.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">💰</div>
+                    <div>
+                        <h4>Competitive Pricing</h4>
+                        <p>Cheaper than the typical $25+ per ticket from other services, with transparent pricing upfront.</p>
+                    </div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">🤝</div>
+                    <div>
+                        <h4>Licensed Partner Support</h4>
+                        <p>We work directly with licensed Tag & Title partners to ensure your renewal is processed correctly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section" id="waitlist-form">
+        <div class="container">
+            <div class="form-container">
+                <h2 class="form-title">Get Early Access in Maryland</h2>
+                <p class="form-subtitle">We'll contact you when we open slots in your county.</p>
+                
+                <form id="leadForm">
+                    <!-- Service Toggle -->
+                    <div class="form-group">
+                        <label>Service Type:</label>
+                        <div class="service-toggle">
+                            <button type="button" class="toggle-option active" data-service="tags">
+                                Tags
+                            </button>
+                            <button type="button" class="toggle-option" data-service="license">
+                                License
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Common Fields -->
+                    <div class="form-group">
+                        <label for="full_name">Full Name *</label>
+                        <input type="text" id="full_name" name="full_name" class="form-control" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-control">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="county">County *</label>
+                            <select id="county" name="county" class="form-control" required>
+                                <option value="">Select County</option>
+                                <option value="Baltimore City">Baltimore City</option>
+                                <option value="Prince George's">Prince George's</option>
+                                <option value="Montgomery">Montgomery</option>
+                                <option value="Anne Arundel">Anne Arundel</option>
+                                <option value="Howard">Howard</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="how_soon_needed">Timeline</label>
+                            <select id="how_soon_needed" name="how_soon_needed" class="form-control">
+                                <option value="ASAP">ASAP</option>
+                                <option value="This week">This week</option>
+                                <option value="This month">This month</option>
+                                <option value="Just researching">Just researching</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="violations_count">How many violations do you have?</label>
+                        <select id="violations_count" name="violations_count" class="form-control">
+                            <option value="1-2">1-2</option>
+                            <option value="3-5">3-5</option>
+                            <option value="6-10">6-10</option>
+                            <option value="10+">10+</option>
+                        </select>
+                    </div>
+
+                    <!-- Tags Specific Fields -->
+                    <div class="conditional-fields active" id="tags-fields">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="plate_number">License Plate Number</label>
+                                <input type="text" id="plate_number" name="plate_number" class="form-control" placeholder="ABC1234">
+                            </div>
+                            <div class="form-group">
+                                <label for="tag_number">Tag Number</label>
+                                <input type="text" id="tag_number" name="tag_number" class="form-control" placeholder="Tag #">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dl_number_tags">Driver's License Number</label>
+                            <input type="text" id="dl_number_tags" name="dl_number_tags" class="form-control" placeholder="M123-456-789-012">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vehicle_year_make_model">Vehicle Year, Make, Model</label>
+                            <input type="text" id="vehicle_year_make_model" name="vehicle_year_make_model" class="form-control" placeholder="e.g., 2018 Honda Accord">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="emissions_due">Emissions Due?</label>
+                                <select id="emissions_due" name="emissions_due" class="form-control">
+                                    <option value="Not sure">Not sure</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="insurance_lapse_history">Insurance Lapse History?</label>
+                                <select id="insurance_lapse_history" name="insurance_lapse_history" class="form-control">
+                                    <option value="No">No</option>
+                                    <option value="Yes">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- License Specific Fields -->
+                    <div class="conditional-fields" id="license-fields">
+                        <div class="form-group">
+                            <label for="dl_number_optional">Driver's License Number (optional)</label>
+                            <input type="text" id="dl_number_optional" name="dl_number_optional" class="form-control">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="license_expiration_date">License Expiration Date</label>
+                            <input type="date" id="license_expiration_date" name="license_expiration_date" class="form-control">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="suspension_or_flags">Suspension or Flags?</label>
+                                <select id="suspension_or_flags" name="suspension_or_flags" class="form-control">
+                                    <option value="Not sure">Not sure</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="vision_submitted_age40plus">Vision Test Submitted (40+)?</label>
+                                <select id="vision_submitted_age40plus" name="vision_submitted_age40plus" class="form-control">
+                                    <option value="Not applicable">Not applicable</option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes_optional">Additional Notes (optional)</label>
+                        <textarea id="notes_optional" name="notes_optional" class="form-control" rows="3" placeholder="Any specific concerns or additional details..."></textarea>
+                    </div>
+
+                    <!-- Hidden UTM Fields -->
+                    <input type="hidden" id="utm_source" name="utm_source">
+                    <input type="hidden" id="utm_medium" name="utm_medium">
+                    <input type="hidden" id="utm_campaign" name="utm_campaign">
+                    <input type="hidden" id="service_type" name="service_type" value="tags">
+
+                    <button type="button" class="submit-button" onclick="submitForm()">Join the Waitlist</button>
+                    
+                    <div class="message" id="message"></div>
+                    
+                    <div class="privacy-note">
+                        By submitting, you agree to be contacted about your renewal. We never sell your data.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Survey Modal -->
+    <div id="surveyModal" class="survey-modal">
+        <div class="survey-content">
+            <div class="survey-header">
+                <h3>Quick Survey - Help Us Serve You Better!</h3>
+                <p>This will take less than 30 seconds and help us understand your needs.</p>
+            </div>
+            
+            <div id="surveyForm">
+                <div class="survey-question">
+                    <label>What's your biggest frustration with the MD renewal process?</label>
+                    <select id="biggest_frustration" class="form-control" required>
+                        <option value="">Select one...</option>
+                        <option value="too_many_agencies">Having to deal with multiple agencies</option>
+                        <option value="long_wait_times">Long wait times and phone holds</option>
+                        <option value="confusing_process">Confusing process and requirements</option>
+                        <option value="unexpected_fees">Unexpected fees and penalties</option>
+                        <option value="time_consuming">Too time consuming overall</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="survey-question">
+                    <label>How much would you pay to avoid all the renewal hassle?</label>
+                    <div class="survey-toggles">
+                        <button type="button" class="survey-toggle" data-value="under_25">Under $25</button>
+                        <button type="button" class="survey-toggle" data-value="25_50">$25-$50</button>
+                        <button type="button" class="survey-toggle" data-value="50_100">$50-$100</button>
+                        <button type="button" class="survey-toggle" data-value="over_100">$100+</button>
+                    </div>
+                    <input type="hidden" id="willingness_to_pay">
+                </div>
+
+                <div class="survey-question">
+                    <label>How did you hear about ClearMyRide?</label>
+                    <select id="referral_source" class="form-control" required>
+                        <option value="">Select one...</option>
+                        <option value="google_search">Google search</option>
+                        <option value="social_media">Social media</option>
+                        <option value="friend_family">Friend/Family</option>
+                        <option value="mva_website">MVA website</option>
+                        <option value="online_ad">Online ad</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="survey-question">
+                    <label>What other services would interest you? (Optional)</label>
+                    <textarea id="other_interests" class="form-control" rows="2" placeholder="e.g., vehicle inspection reminders, insurance comparison, etc."></textarea>
+                </div>
+
+                <div class="survey-actions">
+                    <button type="button" class="survey-skip" onclick="closeSurvey()">Skip Survey</button>
+                    <button type="button" class="survey-submit" onclick="submitSurvey()">Submit Survey</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook">📘</a>
+                <a href="#" aria-label="Twitter">🐦</a>
+                <a href="#" aria-label="Instagram">📷</a>
+                <a href="#" aria-label="LinkedIn">💼</a>
+            </div>
+            <div class="footer-links">
+                <a href="#privacy">Privacy</a>
+                <a href="#terms">Terms</a>
+                <a href="#not-mva">"Not the MVA" Disclosure</a>
+            </div>
+            <p>Contact: support@clearmyride.com</p>
+            <p style="margin-top: 10px; opacity: 0.7;">© 2025 ClearMyRide (a DriveShyft company). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Configuration - Replace with your actual Zapier webhook URLs
+        const WAITLIST_WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/24378241/uh49y8w/';
+        const SURVEY_WEBHOOK_URL = 'PASTE_YOUR_SURVEY_WEBHOOK_URL_HERE';
+
+        // Scroll to form function
+        function scrollToForm() {
+            document.getElementById('waitlist-form').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Show message function
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('message');
+            messageDiv.textContent = text;
+            messageDiv.className = 'message ' + type;
+            messageDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 10000);
+        }
+
+        // Form submission
+        function submitForm() {
+            const form = document.getElementById('leadForm');
+            const submitButton = document.querySelector('.submit-button');
+            
+            // Get form data
+            const formData = {
+                full_name: document.getElementById('full_name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                county: document.getElementById('county').value,
+                how_soon_needed: document.getElementById('how_soon_needed').value,
+                violations_count: document.getElementById('violations_count').value,
+                service_type: document.getElementById('service_type').value,
+                plate_number: document.getElementById('plate_number').value,
+                tag_number: document.getElementById('tag_number').value,
+                dl_number_tags: document.getElementById('dl_number_tags').value,
+                vehicle_year_make_model: document.getElementById('vehicle_year_make_model').value,
+                emissions_due: document.getElementById('emissions_due').value,
+                insurance_lapse_history: document.getElementById('insurance_lapse_history').value,
+                dl_number_optional: document.getElementById('dl_number_optional').value,
+                license_expiration_date: document.getElementById('license_expiration_date').value,
+                suspension_or_flags: document.getElementById('suspension_or_flags').value,
+                vision_submitted_age40plus: document.getElementById('vision_submitted_age40plus').value,
+                notes_optional: document.getElementById('notes_optional').value,
+                utm_source: document.getElementById('utm_source').value,
+                utm_medium: document.getElementById('utm_medium').value,
+                utm_campaign: document.getElementById('utm_campaign').value,
+                timestamp: new Date().toISOString()
+            };
+
+            // Validate required fields
+            if (!formData.full_name || !formData.email || !formData.county) {
+                showMessage('Please fill in all required fields (Name, Email, County)', 'error');
+                return;
+            }
+
+            // Show loading state
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+
+            // Check if we're in Claude's preview environment
+            if (window.location.protocol === 'about:' || window.location.href.includes('claude.ai')) {
+                // Demo mode - simulate success
+                console.log('DEMO MODE - Form data would be sent to Zapier:', formData);
+                showMessage('DEMO SUCCESS! In production, this data would go to your Zapier webhook. The form is working correctly.', 'success');
+                window.userEmail = formData.email;
+                
+                setTimeout(() => {
+                    document.getElementById('surveyModal').classList.add('active');
+                }, 2000);
+                
+                form.reset();
+                submitButton.textContent = 'Join the Waitlist';
+                submitButton.disabled = false;
+                return;
+            }
+
+            // Production mode - send to Zapier
+            if (WAITLIST_WEBHOOK_URL && WAITLIST_WEBHOOK_URL.includes('hooks.zapier.com')) {
+                fetch(WAITLIST_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        showMessage('SUCCESS! You\'re on our waitlist. Survey will appear in 2 seconds...', 'success');
+                        window.userEmail = formData.email;
+                        
+                        setTimeout(() => {
+                            document.getElementById('surveyModal').classList.add('active');
+                        }, 2000);
+                        
+                        form.reset();
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Zapier error:', error);
+                    showMessage('There was an error submitting your form. Please try again.', 'error');
+                })
+                .finally(() => {
+                    submitButton.textContent = 'Join the Waitlist';
+                    submitButton.disabled = false;
+                });
+            } else {
+                showMessage('Webhook URL not configured properly', 'error');
+                submitButton.textContent = 'Join the Waitlist';
+                submitButton.disabled = false;
+            }
+        }
+
+        // Survey functions
+        function submitSurvey() {
+            const surveyData = {
+                biggest_frustration: document.getElementById('biggest_frustration').value,
+                willingness_to_pay: document.getElementById('willingness_to_pay').value,
+                referral_source: document.getElementById('referral_source').value,
+                other_interests: document.getElementById('other_interests').value,
+                email: window.userEmail || 'unknown',
+                timestamp: new Date().toISOString()
+            };
+
+            // Validate required fields
+            if (!surveyData.biggest_frustration || !surveyData.willingness_to_pay || !surveyData.referral_source) {
+                showMessage('Please answer all required survey questions', 'error');
+                return;
+            }
+
+            // Send to Zapier (if survey webhook is configured)
+            if (SURVEY_WEBHOOK_URL && SURVEY_WEBHOOK_URL.includes('hooks.zapier.com')) {
+                fetch(SURVEY_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(surveyData)
+                });
+            }
+
+            closeSurvey();
+            showMessage('Thank you for your feedback! We\'ll be in touch soon.', 'success');
+        }
+
+        function closeSurvey() {
+            document.getElementById('surveyModal').classList.remove('active');
+        }
+
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Capture UTM parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            ['utm_source', 'utm_medium', 'utm_campaign'].forEach(param => {
+                const value = urlParams.get(param);
+                if (value && document.getElementById(param)) {
+                    document.getElementById(param).value = value;
+                }
+            });
+
+            // Service toggle functionality
+            document.querySelectorAll('.toggle-option').forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active from siblings
+                    this.parentElement.querySelectorAll('.toggle-option').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active to clicked button
+                    this.classList.add('active');
+                    
+                    // Update service type
+                    const service = this.dataset.service;
+                    document.getElementById('service_type').value = service;
+                    
+                    // Show/hide conditional fields
+                    document.getElementById('tags-fields').classList.toggle('active', service === 'tags');
+                    document.getElementById('license-fields').classList.toggle('active', service === 'license');
+                });
+            });
+
+            // Survey price toggle functionality
+            document.querySelectorAll('.survey-toggle').forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    document.querySelectorAll('.survey-toggle').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    document.getElementById('willingness_to_pay').value = this.dataset.value;
+                });
+            });
+
+            // Close survey when clicking outside
+            document.getElementById('surveyModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeSurvey();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
