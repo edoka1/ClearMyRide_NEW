@@ -1,0 +1,311 @@
+2025-10-08 19:46:27 - === submit_license.php called ===
+2025-10-08 19:46:27 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-08 19:46:27 - Inserted license_requests id=2
+2025-10-08 19:46:27 - FILES licenseFiles present: {"count":1,"errors":[0]}
+2025-10-08 19:46:27 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/2/
+2025-10-08 19:46:27 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/2/
+2025-10-08 19:46:27 - Processing file index 0 name=_ (7).jpeg error=0
+2025-10-08 19:46:27 - tmp=/Applications/MAMP/tmp/php/phpdrUDqe size=40928 mime=image/jpeg
+2025-10-08 19:46:27 - move_uploaded_file succeeded for _ (7).jpeg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/2/1759952787____7_.jpeg
+2025-10-08 19:46:27 - Inserted attachment record for file _ (7).jpeg, attachment id=1
+2025-10-08 19:46:27 - Transaction committed for license_requests id=2
+2025-10-08 19:55:42 - === submit_license.php called ===
+2025-10-08 20:11:08 - === submit_license.php called ===
+2025-10-08 20:13:40 - === submit_vehicle.php called ===
+2025-10-08 20:13:40 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-08 20:13:40 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-08 20:13:40 - Inserted vehicle_requests id=7
+2025-10-08 20:13:40 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-08 20:13:40 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/7/
+2025-10-08 20:13:40 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/7/
+2025-10-08 20:13:40 - Processing file index 0 name= error=4
+2025-10-08 20:13:40 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-08 20:13:40 - Transaction committed for vehicle_requests id=7
+2025-10-08 20:14:29 - === submit_license.php called ===
+2025-10-08 20:14:29 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-08 20:14:29 - Inserted license_requests id=3
+2025-10-08 20:14:29 - FILES licenseFiles present: {"count":1,"errors":[0]}
+2025-10-08 20:14:29 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/3/
+2025-10-08 20:14:29 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/3/
+2025-10-08 20:14:29 - Processing file index 0 name=Online Exam App Dashboard - Exam Page.jpeg error=0
+2025-10-08 20:14:29 - tmp=/Applications/MAMP/tmp/php/phpGHWHRt size=11848 mime=image/jpeg
+2025-10-08 20:14:29 - move_uploaded_file succeeded for Online Exam App Dashboard - Exam Page.jpeg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/3/1759954469_Online_Exam_App_Dashboard_-_Exam_Page.jpeg
+2025-10-08 20:14:29 - Inserted attachment record for file Online Exam App Dashboard - Exam Page.jpeg, attachment id=2
+2025-10-08 20:14:29 - Transaction committed for license_requests id=3
+2025-10-10 17:55:18 - === submit_vehicle.php called ===
+2025-10-10 17:55:18 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-10 17:55:18 - Consent not given
+2025-10-10 17:57:31 - === submit_vehicle.php called ===
+2025-10-10 17:57:31 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-10 17:57:31 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-10 17:57:31 - Inserted vehicle_requests id=8
+2025-10-10 17:57:31 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-10 17:57:31 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/8/
+2025-10-10 17:57:31 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/8/
+2025-10-10 17:57:31 - Processing file index 0 name= error=4
+2025-10-10 17:57:31 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-10 17:57:31 - Transaction committed for vehicle_requests id=8
+2025-10-10 17:57:54 - === submit_vehicle.php called ===
+2025-10-10 17:57:54 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-10 17:57:54 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-10 17:57:54 - Inserted vehicle_requests id=9
+2025-10-10 17:57:54 - FILES vehicleFiles present: {"count":1,"errors":[0]}
+2025-10-10 17:57:54 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/9/
+2025-10-10 17:57:54 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/9/
+2025-10-10 17:57:54 - Processing file index 0 name=file-sample_150kB.pdf error=0
+2025-10-10 17:57:54 - tmp=/Applications/MAMP/tmp/php/phpvqfco1 size=142786 mime=application/pdf
+2025-10-10 17:57:54 - move_uploaded_file succeeded for file-sample_150kB.pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/9/1760119074_file-sample_150kB.pdf
+2025-10-10 17:57:54 - Inserted attachment record for file file-sample_150kB.pdf, attachment id=3
+2025-10-10 17:57:54 - Transaction committed for vehicle_requests id=9
+2025-10-10 18:06:38 - === submit_vehicle.php called ===
+2025-10-10 18:06:38 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-10 18:06:38 - FILES vehicleFiles present: count=1, errors=[4]
+2025-10-10 18:06:38 - Validation errors: {"phone":"Please enter a valid phone number (7-15 digits).","vin":"Please enter a valid VIN (alphanumeric)."}
+2025-10-10 18:08:55 - === submit_license.php called ===
+2025-10-10 18:08:55 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-10 18:08:55 - Inserted license_requests id=4
+2025-10-10 18:08:55 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2025-10-10 18:08:55 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/4/
+2025-10-10 18:08:55 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/4/
+2025-10-10 18:08:55 - Processing file index 0 name= error=4
+2025-10-10 18:08:55 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-10 18:08:55 - Transaction committed for license_requests id=4
+2025-10-11 06:27:27 - === submit_vehicle.php called ===
+2025-10-11 06:27:27 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 06:27:27 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-11 06:27:27 - Inserted vehicle_requests id=10
+2025-10-11 06:27:27 - FILES vehicleFiles present: {"count":2,"errors":[0,0]}
+2025-10-11 06:27:27 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/10/
+2025-10-11 06:27:27 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/10/
+2025-10-11 06:27:27 - Processing file index 0 name=file-sample_150kB.pdf error=0
+2025-10-11 06:27:27 - tmp=/Applications/MAMP/tmp/php/phpYSmttJ size=142786 mime=application/pdf
+2025-10-11 06:27:27 - move_uploaded_file succeeded for file-sample_150kB.pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/10/1760164047_file-sample_150kB.pdf
+2025-10-11 06:27:27 - Inserted attachment record for file file-sample_150kB.pdf, attachment id=4
+2025-10-11 06:27:27 - Processing file index 1 name=roads_transportation_beltway_I95_495_cars_traffic.jpg error=0
+2025-10-11 06:27:27 - tmp=/Applications/MAMP/tmp/php/phpItgApD size=121271 mime=image/jpeg
+2025-10-11 06:27:27 - move_uploaded_file succeeded for roads_transportation_beltway_I95_495_cars_traffic.jpg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/10/1760164047_roads_transportation_beltway_I95_495_cars_traffic.jpg
+2025-10-11 06:27:27 - Inserted attachment record for file roads_transportation_beltway_I95_495_cars_traffic.jpg, attachment id=5
+2025-10-11 06:27:27 - Transaction committed for vehicle_requests id=10
+2025-10-11 06:28:59 - === submit_license.php called ===
+2025-10-11 06:28:59 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-11 06:28:59 - Inserted license_requests id=5
+2025-10-11 06:28:59 - FILES licenseFiles present: {"count":2,"errors":[0,0]}
+2025-10-11 06:28:59 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/5/
+2025-10-11 06:28:59 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/5/
+2025-10-11 06:28:59 - Processing file index 0 name=file-sample_150kB.pdf error=0
+2025-10-11 06:28:59 - tmp=/Applications/MAMP/tmp/php/phpHazB8C size=142786 mime=application/pdf
+2025-10-11 06:28:59 - move_uploaded_file succeeded for file-sample_150kB.pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/5/1760164139_file-sample_150kB.pdf
+2025-10-11 06:28:59 - Inserted attachment record for file file-sample_150kB.pdf, attachment id=6
+2025-10-11 06:28:59 - Processing file index 1 name=roads_transportation_beltway_I95_495_cars_traffic.jpg error=0
+2025-10-11 06:28:59 - tmp=/Applications/MAMP/tmp/php/phpu7RPF0 size=121271 mime=image/jpeg
+2025-10-11 06:28:59 - move_uploaded_file succeeded for roads_transportation_beltway_I95_495_cars_traffic.jpg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/5/1760164139_roads_transportation_beltway_I95_495_cars_traffic.jpg
+2025-10-11 06:28:59 - Inserted attachment record for file roads_transportation_beltway_I95_495_cars_traffic.jpg, attachment id=7
+2025-10-11 06:28:59 - Transaction committed for license_requests id=5
+2025-10-11 06:37:48 - === submit_vehicle.php called ===
+2025-10-11 06:37:48 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 06:37:48 - Plate failed Maryland format check: 812
+2025-10-11 17:22:46 - === submit_vehicle.php called ===
+2025-10-11 17:22:46 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 17:22:46 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-11 17:22:46 - Inserted vehicle_requests id=12
+2025-10-11 17:22:46 - FILES vehicleFiles present: {"count":1,"errors":[0]}
+2025-10-11 17:22:46 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/12/
+2025-10-11 17:22:46 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/12/
+2025-10-11 17:22:46 - Processing file index 0 name=file-sample_150kB (6).pdf error=0
+2025-10-11 17:22:46 - tmp=/Applications/MAMP/tmp/php/phptsMDAx size=142786 mime=application/pdf
+2025-10-11 17:22:46 - move_uploaded_file succeeded for file-sample_150kB (6).pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/12/1760203366_file-sample_150kB__6_.pdf
+2025-10-11 17:22:46 - Inserted attachment record for file file-sample_150kB (6).pdf, attachment id=8
+2025-10-11 17:22:46 - Transaction committed for vehicle_requests id=12
+2025-10-11 19:45:44 - === submit_vehicle.php called ===
+2025-10-11 19:45:44 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 19:45:44 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-11 19:45:44 - Inserted vehicle_requests id=13
+2025-10-11 19:45:44 - FILES vehicleFiles present: {"count":3,"errors":[0,0,0]}
+2025-10-11 19:45:44 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/
+2025-10-11 19:45:44 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/
+2025-10-11 19:45:44 - Processing file index 0 name=file-sample_150kB (8).pdf error=0
+2025-10-11 19:45:44 - tmp=/Applications/MAMP/tmp/php/phpU6W7g4 size=142786 mime=application/pdf
+2025-10-11 19:45:44 - move_uploaded_file succeeded for file-sample_150kB (8).pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/1760211944_file-sample_150kB__8_.pdf
+2025-10-11 19:45:44 - Inserted attachment record for file file-sample_150kB (8).pdf, attachment id=9
+2025-10-11 19:45:44 - Processing file index 1 name=roads_transportation_beltway_I95_495_cars_traffic (1).jpg error=0
+2025-10-11 19:45:44 - tmp=/Applications/MAMP/tmp/php/phpVv4F6r size=121271 mime=image/jpeg
+2025-10-11 19:45:44 - move_uploaded_file succeeded for roads_transportation_beltway_I95_495_cars_traffic (1).jpg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/1760211944_roads_transportation_beltway_I95_495_cars_traffic__1_.jpg
+2025-10-11 19:45:44 - Inserted attachment record for file roads_transportation_beltway_I95_495_cars_traffic (1).jpg, attachment id=10
+2025-10-11 19:45:44 - Processing file index 2 name=2024-maryland-license-plates-pair-for-sale-1fa5090.jpg error=0
+2025-10-11 19:45:44 - tmp=/Applications/MAMP/tmp/php/phpQ7QR58 size=262002 mime=image/jpeg
+2025-10-11 19:45:44 - move_uploaded_file succeeded for 2024-maryland-license-plates-pair-for-sale-1fa5090.jpg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/1760211944_2024-maryland-license-plates-pair-for-sale-1fa5090.jpg
+2025-10-11 19:45:44 - Inserted attachment record for file 2024-maryland-license-plates-pair-for-sale-1fa5090.jpg, attachment id=11
+2025-10-11 19:45:44 - Transaction committed for vehicle_requests id=13
+2025-10-11 19:47:06 - === submit_vehicle.php called ===
+2025-10-11 19:47:06 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 19:47:06 - CSRF failed. POST token: [none] SESSION token: fb979fe1f052e975b400882e311b35bab2f8ce3653329a46d3643f06ffd06dd7
+2025-10-11 19:47:44 - === submit_vehicle.php called ===
+2025-10-11 19:47:44 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-11 19:47:44 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-11 19:47:44 - Inserted vehicle_requests id=14
+2025-10-11 19:47:44 - FILES vehicleFiles present: {"count":2,"errors":[0,0]}
+2025-10-11 19:47:44 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/14/
+2025-10-11 19:47:44 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/14/
+2025-10-11 19:47:44 - Processing file index 0 name=file-sample_150kB (6).pdf error=0
+2025-10-11 19:47:44 - tmp=/Applications/MAMP/tmp/php/phpUnbx6A size=142786 mime=application/pdf
+2025-10-11 19:47:44 - move_uploaded_file succeeded for file-sample_150kB (6).pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/14/1760212064_file-sample_150kB__6_.pdf
+2025-10-11 19:47:44 - Inserted attachment record for file file-sample_150kB (6).pdf, attachment id=12
+2025-10-11 19:47:44 - Processing file index 1 name=2024-maryland-license-plates-pair-for-sale-1fa5090.jpg error=0
+2025-10-11 19:47:44 - tmp=/Applications/MAMP/tmp/php/phpaBzxcr size=262002 mime=image/jpeg
+2025-10-11 19:47:44 - move_uploaded_file succeeded for 2024-maryland-license-plates-pair-for-sale-1fa5090.jpg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/14/1760212064_2024-maryland-license-plates-pair-for-sale-1fa5090.jpg
+2025-10-11 19:47:44 - Inserted attachment record for file 2024-maryland-license-plates-pair-for-sale-1fa5090.jpg, attachment id=13
+2025-10-11 19:47:44 - Transaction committed for vehicle_requests id=14
+2025-10-13 20:15:31 - === submit_vehicle.php called ===
+2025-10-13 20:15:31 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-13 20:15:31 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-13 20:15:31 - Inserted vehicle_requests id=15
+2025-10-13 20:15:31 - FILES vehicleFiles present: {"count":2,"errors":[0,0]}
+2025-10-13 20:15:31 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/15/
+2025-10-13 20:15:31 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/15/
+2025-10-13 20:15:31 - Processing file index 0 name=_ (7).jpeg error=0
+2025-10-13 20:15:31 - tmp=/Applications/MAMP/tmp/php/phpohQsP4 size=40928 mime=image/jpeg
+2025-10-13 20:15:31 - move_uploaded_file succeeded for _ (7).jpeg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/15/1760386531____7_.jpeg
+2025-10-13 20:15:31 - Inserted attachment record for file _ (7).jpeg, attachment id=14
+2025-10-13 20:15:31 - Processing file index 1 name=file-sample_150kB (5).pdf error=0
+2025-10-13 20:15:31 - tmp=/Applications/MAMP/tmp/php/phpj6Zq06 size=142786 mime=application/pdf
+2025-10-13 20:15:31 - move_uploaded_file succeeded for file-sample_150kB (5).pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/15/1760386531_file-sample_150kB__5_.pdf
+2025-10-13 20:15:31 - Inserted attachment record for file file-sample_150kB (5).pdf, attachment id=15
+2025-10-13 20:15:31 - Transaction committed for vehicle_requests id=15
+2025-10-14 17:39:31 - === submit_vehicle.php called ===
+2025-10-14 17:39:31 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-14 17:39:31 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-14 17:39:31 - Inserted vehicle_requests id=16
+2025-10-14 17:39:31 - FILES vehicleFiles present: {"count":2,"errors":[0,0]}
+2025-10-14 17:39:31 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/16/
+2025-10-14 17:39:31 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/16/
+2025-10-14 17:39:31 - Processing file index 0 name=file-sample_150kB (5) (1).pdf error=0
+2025-10-14 17:39:31 - tmp=/Applications/MAMP/tmp/php/phpi2h4of size=142786 mime=application/pdf
+2025-10-14 17:39:31 - move_uploaded_file succeeded for file-sample_150kB (5) (1).pdf -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/16/1760463571_file-sample_150kB__5___1_.pdf
+2025-10-14 17:39:31 - Inserted attachment record for file file-sample_150kB (5) (1).pdf, attachment id=16
+2025-10-14 17:39:31 - Processing file index 1 name=_ (7).jpeg error=0
+2025-10-14 17:39:31 - tmp=/Applications/MAMP/tmp/php/phpIC7cif size=40928 mime=image/jpeg
+2025-10-14 17:39:31 - move_uploaded_file succeeded for _ (7).jpeg -> /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/16/1760463571____7_.jpeg
+2025-10-14 17:39:31 - Inserted attachment record for file _ (7).jpeg, attachment id=17
+2025-10-14 17:39:31 - Transaction committed for vehicle_requests id=16
+2025-10-16 04:42:26 - === submit_vehicle.php called ===
+2025-10-16 04:42:26 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-16 04:42:26 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 04:42:26 - Inserted vehicle_requests id=17
+2025-10-16 04:42:26 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-16 04:42:26 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/17/
+2025-10-16 04:42:26 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/17/
+2025-10-16 04:42:26 - Processing file index 0 name= error=4
+2025-10-16 04:42:26 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 04:42:26 - Transaction committed for vehicle_requests id=17
+2025-10-16 04:42:31 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide request #17 — Sloane Rasmussen
+2025-10-16 04:42:35 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
+2025-10-16 04:42:35 - Admin email sent? yes
+2025-10-16 04:42:35 - Client email sent? yes
+2025-10-16 04:47:59 - === submit_license.php called ===
+2025-10-16 04:47:59 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 04:47:59 - Inserted license_requests id=6
+2025-10-16 04:47:59 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2025-10-16 04:47:59 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/6/
+2025-10-16 04:47:59 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/6/
+2025-10-16 04:47:59 - Processing file index 0 name= error=4
+2025-10-16 04:47:59 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 04:47:59 - Transaction committed for license_requests id=6
+2025-10-16 04:48:04 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request #6 — Aladdin Johnson
+2025-10-16 04:48:09 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of License Renewals
+2025-10-16 04:48:09 - Admin email sent? yes
+2025-10-16 04:48:09 - Client email sent? yes
+2025-10-16 04:58:43 - === submit_license.php called ===
+2025-10-16 04:58:43 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 04:58:43 - Inserted license_requests id=7
+2025-10-16 04:58:43 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2025-10-16 04:58:43 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/7/
+2025-10-16 04:58:43 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/7/
+2025-10-16 04:58:43 - Processing file index 0 name= error=4
+2025-10-16 04:58:43 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 04:58:43 - Transaction committed for license_requests id=7
+2025-10-16 04:58:47 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request #7 — Macy Thompson
+2025-10-16 04:58:50 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of License Renewals
+2025-10-16 04:58:50 - Admin email sent? yes
+2025-10-16 04:58:50 - Client email sent? yes
+2025-10-16 05:00:36 - === submit_license.php called ===
+2025-10-16 05:00:36 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:00:36 - Inserted license_requests id=8
+2025-10-16 05:00:36 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:00:36 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/8/
+2025-10-16 05:00:36 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/8/
+2025-10-16 05:00:36 - Processing file index 0 name= error=4
+2025-10-16 05:00:36 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:00:36 - Transaction committed for license_requests id=8
+2025-10-16 05:00:39 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request — Inez Dunlap
+2025-10-16 05:00:43 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of License Renewals
+2025-10-16 05:00:43 - Admin email sent? yes
+2025-10-16 05:00:43 - Client email sent? yes
+2025-10-16 05:05:09 - === submit_vehicle.php called ===
+2025-10-16 05:05:09 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-16 05:05:09 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:05:09 - Inserted vehicle_requests id=18
+2025-10-16 05:05:09 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:05:09 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/18/
+2025-10-16 05:05:09 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/18/
+2025-10-16 05:05:09 - Processing file index 0 name= error=4
+2025-10-16 05:05:09 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:05:09 - Transaction committed for vehicle_requests id=18
+2025-10-16 05:05:18 - send_mail success to support@clearmyride.com subject=New ClearMyRide VEHICLE request — Meredith Rich
+2025-10-16 05:05:26 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
+2025-10-16 05:05:26 - Admin email sent? yes
+2025-10-16 05:05:26 - Client email sent? yes
+2025-10-16 05:07:42 - === submit_vehicle.php called ===
+2025-10-16 05:07:42 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-16 05:07:42 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:07:42 - Inserted vehicle_requests id=19
+2025-10-16 05:07:42 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:07:42 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/19/
+2025-10-16 05:07:42 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/19/
+2025-10-16 05:07:42 - Processing file index 0 name= error=4
+2025-10-16 05:07:42 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:07:42 - Transaction committed for vehicle_requests id=19
+2025-10-16 05:07:50 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Gannon Hunter
+2025-10-16 05:07:59 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
+2025-10-16 05:07:59 - Admin email sent? yes
+2025-10-16 05:07:59 - Client email sent? yes
+2025-10-16 05:15:59 - === submit_vehicle.php called ===
+2025-10-16 05:15:59 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-16 05:15:59 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:15:59 - Inserted vehicle_requests id=20
+2025-10-16 05:15:59 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:15:59 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/20/
+2025-10-16 05:15:59 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/20/
+2025-10-16 05:15:59 - Processing file index 0 name= error=4
+2025-10-16 05:15:59 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:15:59 - Transaction committed for vehicle_requests id=20
+2025-10-16 05:16:08 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Marsden Conway
+2025-10-16 05:16:14 - send_mail success to divineojo12345@gamil.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
+2025-10-16 05:16:14 - Admin email sent? yes
+2025-10-16 05:16:14 - Client email sent? yes
+2025-10-16 05:17:24 - === submit_license.php called ===
+2025-10-16 05:17:24 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:17:24 - Inserted license_requests id=9
+2025-10-16 05:17:24 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:17:24 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/9/
+2025-10-16 05:17:24 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/9/
+2025-10-16 05:17:24 - Processing file index 0 name= error=4
+2025-10-16 05:17:24 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:17:24 - Transaction committed for license_requests id=9
+2025-10-16 05:17:30 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request — divine isaac-ojo
+2025-10-16 05:17:38 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of License Renewals
+2025-10-16 05:17:38 - Admin email sent? yes
+2025-10-16 05:17:38 - Client email sent? yes
+2025-10-16 05:18:23 - === submit_vehicle.php called ===
+2025-10-16 05:18:23 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2025-10-16 05:18:23 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2025-10-16 05:18:23 - Inserted vehicle_requests id=21
+2025-10-16 05:18:23 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2025-10-16 05:18:23 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/21/
+2025-10-16 05:18:23 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/21/
+2025-10-16 05:18:23 - Processing file index 0 name= error=4
+2025-10-16 05:18:23 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2025-10-16 05:18:23 - Transaction committed for vehicle_requests id=21
+2025-10-16 05:18:29 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — divine isaac-ojo
+2025-10-16 05:18:37 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
+2025-10-16 05:18:37 - Admin email sent? yes
+2025-10-16 05:18:37 - Client email sent? yes
