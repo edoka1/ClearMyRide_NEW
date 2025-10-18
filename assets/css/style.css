@@ -244,16 +244,17 @@ img {
 }
 @media (max-width: 480px) {
   .nav .container {
-    padding: 10px 0;
+    padding: 0;
   }
   .brand .brand-text {
-    font-size: 16px;
+    display: none;
   }
   .hero {
     padding: 36px 0 40px;
   }
   .hero-title {
-    font-size: 15px;
+    font-size: 19px;
+    line-height: 28px;
   }
   .illustration-box {
     height: 200px;
@@ -262,12 +263,54 @@ img {
   }
   .lead,
   .hero-sub {
-    font-size: 14px;
+    font-size: 13px;
+    max-width: 250px;
+    margin: 25px auto;
   }
   .cta-primary {
-    width: 100%;
-    padding: 12px;
-  }
+  padding: 8px 10px;
+  /* border-radius: 12px; */
+  font-weight: 700;
+  font-size: 12px;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(10, 87, 255, 0.12);
+}
+  .hero-illustration::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px; /* adjust size */
+  height: 210px; /* adjust size */
+  background: linear-gradient(135deg, #3BA7FF, #0A57FF);
+  transform: translate(-50%, -50%) rotate(5deg);
+  z-index: 0;
+  opacity: 0.85;
+    margin-top:23px;
+}
+.hero-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  max-width: 100%;
+  margin-top:50px;
+}
+#middle{
+  margin: 0 auto;
+    padding: 12px 20px;
+  /* border-radius: 12px; */
+  font-weight: 700;
+  font-size: 16px;
+  background: var(--clr-primary);
+  color: var(--clr-white);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(10, 87, 255, 0.12);
+}
+
 }
 
 /* small utility */
@@ -389,7 +432,7 @@ img {
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .how-section {
-    padding: 80px 0;
+    padding: 50px 0;
   }
 
   .how-title {
@@ -597,6 +640,15 @@ img {
   .about-section {
     padding: 36px 0;
   }
+  .about-heading {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 18px;
+  color: var(--clr-dark);
+  letter-spacing: -0.3px;
+  margin-top: 30px;
+}
   .about-actions {
     flex-direction: column;
     align-items: stretch;
@@ -606,6 +658,19 @@ img {
     width: 100%;
     padding: 12px;
   }
+  .about-image::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 49%;
+  width: 310px;
+  height: 210px;
+  background: linear-gradient(135deg, #3BA7FF, #0A57FF); 
+  transform: translate(-50%, -50%) rotate(-6deg);
+  z-index: 0;
+  opacity: 0.8;
+
+}
 }
 
 /* Footer */

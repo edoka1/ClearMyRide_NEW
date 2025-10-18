@@ -57,7 +57,7 @@ require_once __DIR__ . '/assets/app/alerts.php';
                         <div class="hero-sub">Serving Maryland drivers blocked by MVA flags, tolls, and tickets.</div>
 
                         <div class="hero-cta">
-                            <button class="cta-primary"><a href="#form" style="color: white; text-decoration: none;">Check My Status</a></button>
+                            <button id="middle" class="cta-primary"><a href="#form" style="color: white; text-decoration: none;">Check My Status</a></button>
                         </div>
                     </div>
 
@@ -468,8 +468,8 @@ require_once __DIR__ . '/assets/app/alerts.php';
 
                 <div class="footer-bottom">
                     <div class="footer-links">
-                        <a href="privacy_policy.php" class="footer-link">Privacy Policy</a>
-                        <a href="terms.php" class="footer-link">Terms of Service</a>
+                        <a href="privacy_policy.php" target="_blank" class="footer-link">Privacy Policy</a>
+                        <a href="terms.php" target="_blank" class="footer-link">Terms of Service</a>
                         <a href="#not-mva" class="footer-link">"Not the MVA" Disclosure</a>
                     </div>
 

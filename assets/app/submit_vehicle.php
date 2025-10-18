@@ -343,7 +343,7 @@ try {
                   <li>When it’s all wrapped up, we’ll send you a short feedback form. Your honest thoughts will help shape the public version of ClearMyRide.</li>
                 </ul>
 
-                <p style=\"margin:0 0 14px 0;color:#6b7280;font-size:13px;\">We take your privacy seriously. You can read our <a href=\"https://clearmyride.com/privacy\" style=\"color:#0A57FF;text-decoration:none;font-weight:600;\">Privacy Notice</a> to see how we collect, use, and protect your data.</p>
+                <p style=\"margin:0 0 14px 0;color:#6b7280;font-size:13px;\">We take your privacy seriously. You can read our <a href=\"https://clearmyride.com/privacy_policy\" style=\"color:#0A57FF;text-decoration:none;font-weight:600;\">Privacy Notice</a> to see how we collect, use, and protect your data.</p>
 
                 <p style=\"margin:0 0 6px 0;\">Appreciate you being part of the journey. You’re helping us build something smoother for every driver out there.</p>
 
