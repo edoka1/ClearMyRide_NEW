@@ -1,23 +1,15 @@
 <?php
-// assets/app/admin/export_vehicle_xlsx.php
+// admin/export_vehicle_xlsx.php
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/../db_connect.php';
 
-// Composer autoload (adjust path if your vendor is elsewhere)
+// Composer autoload (adjust path if needed)
 require_once __DIR__ . '/../../../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
-// sanity checks
-if (!class_exists(\PhpOffice\PhpSpreadsheet\Spreadsheet::class)) {
-    http_response_code(500);
-    echo 'PhpSpreadsheet not loaded — check your require path to vendor/autoload.php';
-    exit;
-}
-
-// require admin session
 if (empty($_SESSION['admin_id'])) {
     http_response_code(403);
     echo 'Unauthorized';
@@ -25,68 +17,59 @@ if (empty($_SESSION['admin_id'])) {
 }
 
 // Read filters from GET
-$search = isset($_GET['q']) ? trim((string)$_GET['q']) : '';
-$filterStatus = isset($_GET['status']) ? trim((string)$_GET['status']) : '';
+$search = isset($_GET['q']) ? trim($_GET['q']) : '';
+$filterStatus = isset($_GET['status']) ? trim($_GET['status']) : '';
 
-// Map filterStatus to filename token
-$statusToken = 'all';
-if ($filterStatus !== '') {
-    $fs = strtolower($filterStatus);
-    if ($fs === 'received') $statusToken = 'pending';
-    elseif ($fs === 'processing') $statusToken = 'processing';
-    elseif ($fs === 'processed' || $fs === 'complete') $statusToken = 'completed';
-    else $statusToken = preg_replace('/[^a-z0-9_-]/i', '', $fs) ?: 'custom';
-}
-
-// Build WHERE parts and params — same filtering rules as view_vehicle page
+// Build WHERE parts – join with customer_requests
 $whereParts = [];
 $params = [];
 
+$baseJoin = "FROM vehicle_requests vr
+             JOIN customer_requests cr ON vr.customer_request_id = cr.id
+             LEFT JOIN users u ON cr.user_id = u.id";
+
 if ($search !== '') {
-    $cols = ['full_name', 'email', 'phone', 'plate', 'vin'];
+    $cols = ['vr.full_name', 'vr.email', 'vr.phone', 'vr.plate', 'vr.vin', 'u.email', 'u.full_name'];
     $likeParts = [];
     foreach ($cols as $i => $col) {
         $ph = "q{$i}";
         $likeParts[] = "{$col} LIKE :{$ph}";
         $params[$ph] = '%' . $search . '%';
     }
-    if (!empty($likeParts)) $whereParts[] = '(' . implode(' OR ', $likeParts) . ')';
+    $whereParts[] = '(' . implode(' OR ', $likeParts) . ')';
 }
 
 if ($filterStatus !== '') {
-    $fs = strtolower($filterStatus);
-    if ($fs === 'received') {
-        $whereParts[] = "(status = 'received' OR status IS NULL OR status = '' OR LOWER(status) IN ('pending','new'))";
-    } elseif ($fs === 'processed' || $fs === 'complete') {
-        $whereParts[] = "(LOWER(status) = 'processed' OR LOWER(status) = 'complete')";
-    } elseif ($fs === 'processing') {
-        $whereParts[] = "LOWER(status) = 'processing'";
-    } else {
-        $whereParts[] = "status = :status";
-        $params['status'] = $filterStatus;
+    if ($filterStatus === 'pending') {
+        $whereParts[] = "cr.status = 'Pending'";
+    } elseif ($filterStatus === 'processing') {
+        $whereParts[] = "cr.status = 'Processing'";
+    } elseif ($filterStatus === 'completed') {
+        $whereParts[] = "cr.status = 'Completed'";
     }
+    // Add more statuses if your dropdown includes others
 }
 
-$whereSql = $whereParts ? ('WHERE ' . implode(' AND ', $whereParts)) : '';
+$whereSql = $whereParts ? 'WHERE ' . implode(' AND ', $whereParts) : '';
 
-// Query: join attachments and group
+// Query with attachments (grouped)
 $sql = "
 SELECT
-  vr.full_name,
-  vr.email,
-  vr.phone,
-  vr.dob,
-  vr.plate,
-  vr.vin,
-  vr.reg_exp,
-  vr.renew_when,
-  vr.status,
-  vr.created_at,
-  vr.updated_at,
-  GROUP_CONCAT(a.file_name SEPARATOR ' ; ') AS attachments
-FROM vehicle_requests vr
+    vr.full_name,
+    vr.email,
+    vr.phone,
+    vr.dob,
+    vr.plate,
+    vr.vin,
+    vr.reg_exp,
+    vr.renew_when,
+    cr.status,
+    vr.created_at,
+    vr.updated_at,
+    GROUP_CONCAT(a.file_name SEPARATOR ' ; ') AS attachments
+$baseJoin
 LEFT JOIN attachments a ON a.parent_type = 'vehicle' AND a.parent_id = vr.id
-{$whereSql}
+$whereSql
 GROUP BY vr.id
 ORDER BY vr.id DESC
 ";
@@ -97,7 +80,7 @@ foreach ($params as $k => $v) {
 }
 $stmt->execute();
 
-// Prepare spreadsheet
+// Create spreadsheet
 $spreadsheet = new Spreadsheet();
 $sheet = $spreadsheet->getActiveSheet();
 $sheet->setTitle('Vehicle Requests');
@@ -129,28 +112,20 @@ $sheet->getStyle("A1:{$lastCol}1")->getFont()->setBold(true);
 $rowNum = 2;
 while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
     $colIndex = 1;
-
-    $values = [];
-    $values[] = $r['full_name'] ?? '';
-    $values[] = $r['email'] ?? '';
-    $values[] = $r['phone'] ?? '';
-    $values[] = $r['dob'] ?? '';
-    $values[] = $r['plate'] ?? '';
-    $values[] = $r['vin'] ?? '';
-    $values[] = $r['reg_exp'] ?? '';
-    $values[] = $r['renew_when'] ?? '';
-
-    // Normalize status text
-    $status = isset($r['status']) ? strtolower(trim($r['status'])) : '';
-    if ($status === '' || in_array($status, ['pending','new'], true)) $status = 'received';
-    if ($status === 'processed') $status = 'complete';
-    $statusLabel = ($status === 'received') ? 'Pending' : ucfirst($status);
-    $values[] = $statusLabel;
-
-    $values[] = $r['created_at'] ?? '';
-    $values[] = $r['updated_at'] ?? '';
-    $values[] = $r['attachments'] ?? '';
-
+    $values = [
+        $r['full_name'] ?? '',
+        $r['email'] ?? '',
+        $r['phone'] ?? '',
+        $r['dob'] ?? '',
+        $r['plate'] ?? '',
+        $r['vin'] ?? '',
+        $r['reg_exp'] ?? '',
+        $r['renew_when'] ?? '',
+        $r['status'] ?? '',          // now from cr.status
+        $r['created_at'] ?? '',
+        $r['updated_at'] ?? '',
+        $r['attachments'] ?? ''
+    ];
     foreach ($values as $v) {
         $colLetter = Coordinate::stringFromColumnIndex($colIndex);
         $sheet->setCellValue("{$colLetter}{$rowNum}", $v);
@@ -164,12 +139,13 @@ for ($ci = 1; $ci <= count($headers); $ci++) {
     $sheet->getColumnDimension(Coordinate::stringFromColumnIndex($ci))->setAutoSize(true);
 }
 
-// Output - include filter token in filename
+// Output filename with filter token
+$statusToken = $filterStatus ?: 'all';
 $now = date('Ymd_His');
-$filename = sprintf('vehicle_requests_%s_%s.xlsx', $statusToken, $now);
+$filename = "vehicle_requests_{$statusToken}_{$now}.xlsx";
 
 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-header('Content-Disposition: attachment; filename="'. $filename .'"');
+header('Content-Disposition: attachment; filename="' . $filename . '"');
 header('Cache-Control: max-age=0');
 
 $writer = new Xlsx($spreadsheet);

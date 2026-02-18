@@ -1,9 +1,19 @@
-# Enable rewrite engine
-RewriteEngine On
+Options -Indexes
 
-# Allow direct access to existing files and directories
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
+<IfModule mod_rewrite.c>
+    RewriteEngine On
 
-# Redirect /admin/... to /assets/app/admin/...
-RewriteRule ^admin/(.*)$ assets/app/admin/$1 [L]
+    # Automatically set the base to the current directory
+    RewriteCond %{REQUEST_URI}::$1 ^(.*?/)(.*)::\2$
+    RewriteRule ^(.*)$ - [E=BASE:%1]
+
+    # Public pages: /dashboard → /dashboard.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^([a-zA-Z0-9_-]+)$ %{ENV:BASE}$1.php [L,QSA]
+
+    # Admin pages: /admin/login → /assets/app/admin/login.php
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^admin/([a-zA-Z0-9_-]+)$ %{ENV:BASE}assets/app/admin/$1.php [L,QSA]
+</IfModule>

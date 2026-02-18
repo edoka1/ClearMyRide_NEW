@@ -1,5 +1,7 @@
 <?php
+
 session_start();
+
 
 // CSRF token
 if (empty($_SESSION['csrf_token'])) {
@@ -19,6 +21,7 @@ require_once __DIR__ . '/assets/app/alerts.php';
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/auth-modal.css?v=<?php echo time(); ?>">
 
 
     <link rel="stylesheet" href="assets/css/style.css?v=<?php echo time(); ?>">
@@ -30,13 +33,35 @@ require_once __DIR__ . '/assets/app/alerts.php';
     <!-- NAV -->
     <header class="nav" role="banner">
         <div class="container">
-            <a class="brand" href="#">
+            <a class="brand" href="/">
                 <img src="assets/images/CMR Transparent BG.png" alt="Clear My Ride logo" />
                 <span class="brand-text">ClearMyRide</span>
             </a>
 
             <div class="nav-actions" role="navigation" aria-label="Primary">
-                <button class="cta-primary"><a href="#about" style="color: white; text-decoration: none;">Learn More</a></button>
+                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                    <div class="dropdown user-dropdown">
+                        <button class="btn dropdown-toggle user-menu-btn" type="button" id="userMenuBtn" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <circle cx="12" cy="8" r="4" stroke-width="2" />
+                                <path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" stroke-width="2" />
+                            </svg>
+                            <span><?php echo htmlspecialchars($_SESSION['user_name'] ?? 'User'); ?></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="userMenuBtn">
+                            <li><a class="dropdown-item" href="dashboard.php">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="assets/app/logout.php">Logout</a></li>
+                        </ul>
+                    </div>
+
+                <?php else: ?>
+                    <a href="login.php" class="btn btn-login">Login</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
+                <?php endif; ?>
             </div>
         </div>
     </header>
@@ -321,7 +346,13 @@ require_once __DIR__ . '/assets/app/alerts.php';
                                         </div>
 
                                         <div class="form-group full-width">
-                                            <button type="submit" class="btn btn-primary intake">Submit Vehicle Registration Request</button>
+                                            <button type="submit" class="btn btn-primary intake">
+                                                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                                                    Submit Request
+                                                <?php else: ?>
+                                                    Submit Request
+                                                <?php endif; ?>
+                                            </button>
                                         </div>
 
                                     </div>
@@ -418,7 +449,13 @@ require_once __DIR__ . '/assets/app/alerts.php';
                                         </div>
 
                                         <div class="form-group full-width">
-                                            <button type="submit" class="btn btn-primary intake">Submit License Renewal Request</button>
+                                            <button type="submit" class="btn btn-primary intake">
+                                                <?php if (isset($_SESSION['logged_in']) && $_SESSION['logged_in']): ?>
+                                                    Submit Request
+                                                <?php else: ?>
+                                                    Login to Submit Request
+                                                <?php endif; ?>
+                                            </button>
                                         </div>
 
                                     </div>
@@ -499,294 +536,790 @@ require_once __DIR__ . '/assets/app/alerts.php';
             </div>
         </footer>
 
+        <!-- Minimal, Sharp Auth Modal -->
+<div class="modal fade modal-auth" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Complete Your Request</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Info message (clean) -->
+                <div class="auth-message">
+                    <p><strong>Almost there!</strong> Please login or create an account to submit your request.</p>
+                </div>
+
+                <!-- Login Form -->
+                <div class="auth-form active" id="loginForm">
+                    <h5>Sign In</h5>
+                    <form id="modalLoginForm" method="POST" action="assets/app/login.php">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+                        <input type="hidden" name="redirect" value="index.php#form">
+
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="modalLoginEmail" class="form-label">Email Address</label>
+                                <input type="email" class="form-control" id="modalLoginEmail" name="email" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="modalLoginPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="modalLoginPassword" name="password" required>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="auth-btn" id="loginBtn">Sign In</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="auth-switch">
+                        <p class="mb-0">Don't have an account? <a href="#" class="switch-link" data-switch-to="register">Sign up</a></p>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div class="auth-form hidden" id="registerForm">
+                    <h5>Create Account</h5>
+                    <form id="modalRegisterForm" method="POST" action="assets/app/register.php">
+                        <input type="hidden" name="csrf_token" value="<?php echo htmlspecialchars($_SESSION['csrf_token']); ?>">
+                        <input type="hidden" name="redirect" value="index.php#form">
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="modalRegisterFullName" class="form-label">Full Name</label>
+                                <input type="text" class="form-control" id="modalRegisterFullName" name="full_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modalRegisterEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="modalRegisterEmail" name="email" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modalRegisterPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="modalRegisterPassword" name="password" required>
+                                <small class="form-text">Min. 8 chars, letters & numbers</small>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="modalRegisterConfirmPassword" class="form-label">Confirm</label>
+                                <input type="password" class="form-control" id="modalRegisterConfirmPassword" name="confirm_password" required>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="modalTermsCheck" required>
+                                    <label class="form-check-label" for="modalTermsCheck">
+                                        I agree to the <a href="terms.php" target="_blank">Terms</a> and <a href="privacy_policy.php" target="_blank">Privacy Policy</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="auth-btn" id="registerBtn">Create Account</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="auth-switch">
+                        <p class="mb-0">Already have an account? <a href="#" class="switch-link" data-switch-to="login">Sign in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" defer></script>
 <script>
-(function(){
-  // validators
-  const validators = {
-    email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v||'').trim()),
-    phoneMD: v => { const digits = (v||'').replace(/\D/g,''); return digits.length >= 7 && digits.length <= 15; },
-    // stricter MD plate: require at least one letter AND one digit; allow letters, digits, spaces, hyphens; 4-10 chars total
-    plateMD: v => {
-      if(!v) return false;
-      const s = String(v).trim();
-      if (/[IOQ]/i.test(s)) return false; // disallow I/O/Q for standard plates
-      if (!/^[A-Za-z0-9\s\-]{4,10}$/.test(s)) return false;
-      // require at least one letter & one digit
-      return /[A-Za-z]/.test(s) && /\d/.test(s);
-    },
-    vinMD: v => {
-      if(!v) return true; // optional: only validate when filled
-      const s = String(v).replace(/\s+/g,'').toUpperCase();
-      return /^[A-HJ-NPR-Z0-9]{17}$/.test(s);
-    },
-    required: v => v !== null && v !== undefined && String(v).trim() !== ''
-  };
+    // ===== REVISED AUTHENTICATION FLOW =====
+    document.addEventListener('DOMContentLoaded', function() {
+        // Elements
+        const authModal = new bootstrap.Modal(document.getElementById('authModal'));
+        const loginForm = document.getElementById('modalLoginForm');
+        const registerForm = document.getElementById('modalRegisterForm');
 
-  // helper: find immediate invalid-feedback after element
-  function findFB(el){
-    if(!el) return null;
-    let next = el.nextElementSibling;
-    if(next && next.classList && next.classList.contains('invalid-feedback')) return next;
-    return null;
-  }
+        // Form switching in modal
+        document.querySelectorAll('.switch-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = e.target.dataset.switchTo;
 
-  function showError(el, msg){
-    if(!el) return;
-    el.classList.add('is-invalid');
-    el.classList.remove('is-valid');
-    const fb = findFB(el);
-    if(fb) fb.textContent = msg;
-  }
-  function clearError(el){
-    if(!el) return;
-    el.classList.remove('is-invalid');
-    el.classList.add('is-valid');
-    const fb = findFB(el);
-    if(fb) fb.textContent = '';
-  }
-
-  // vehicle form validation
-  function validateVehicle(form){
-    let ok = true;
-    const q = sel => form.querySelector(sel);
-
-    const full = q('[name="fullName"]');
-    if(!validators.required(full?.value)){ showError(full,'Please enter your full name.'); ok=false; } else clearError(full);
-
-    const email = q('[name="email"]');
-    if(!validators.required(email?.value) || !validators.email(email?.value)){ showError(email,'Please enter a valid email (e.g. jane@example.com).'); ok=false; } else clearError(email);
-
-    const phone = q('[name="phone"]');
-    if(!validators.required(phone?.value) || !validators.phoneMD(phone.value)){ showError(phone,'Please enter a valid phone number (e.g. (410) 555-1234).'); ok=false; } else clearError(phone);
-
-    const dob = q('[name="dob"]');
-    if(!validators.required(dob?.value)){ showError(dob,'Please provide your date of birth.'); ok=false; } else clearError(dob);
-
-    const plate = q('[name="plate"]');
-    if(!validators.required(plate?.value) || !validators.plateMD(plate.value)){ showError(plate,'Enter a valid Maryland plate that includes letters and numbers (example: ABC-1234).'); ok=false; } else clearError(plate);
-
-    const vin = q('[name="vin"]');
-    if(vin && vin.value.trim() !== '' && !validators.vinMD(vin.value)){ showError(vin,'VIN must be 17 characters; letters/numbers only; avoid I, O, Q.'); ok=false; } else if(vin) clearError(vin);
-
-    const renew = q('[name="renewWhen"]');
-    if(!validators.required(renew?.value)){ showError(renew,'Please select when your renewal is due.'); ok=false; } else clearError(renew);
-
-    // radio group v-hasIssues
-    const has = form.querySelector('input[name="v-hasIssues"]:checked');
-    const hasFb = document.getElementById('v-hasIssues-feedback');
-    if(!has){ if(hasFb){ hasFb.classList.add('d-block'); hasFb.textContent = 'Please indicate whether you have outstanding tickets or flags.'; } ok=false; } else { if(hasFb){ hasFb.classList.remove('d-block'); hasFb.textContent=''; } }
-
-    const delivery = q('[name="delivery"]');
-    if(!validators.required(delivery?.value)){ showError(delivery,'Please select a delivery method.'); ok=false; } else clearError(delivery);
-
-    const referral = q('[name="referral"]');
-    if(!validators.required(referral?.value)){ showError(referral,'Please tell us how you heard about us.'); ok=false; } else clearError(referral);
-
-    const consent = q('[name="consent"]');
-    const consentFb = document.getElementById('v-consent-feedback');
-    if(!consent || !consent.checked){ if(consentFb){ consentFb.classList.add('d-block'); consentFb.textContent = 'You must consent to allow us access to your MVA records.'; } if(consent) consent.classList.add('is-invalid'); ok=false; } else { if(consentFb){ consentFb.classList.remove('d-block'); consentFb.textContent=''; } if(consent) consent.classList.remove('is-invalid'); }
-
-    return ok;
-  }
-
-  // license form validation
-  function validateLicense(form){
-    let ok = true;
-    const q = sel => form.querySelector(sel);
-
-    const full = q('[name="fullName"]');
-    if(!validators.required(full?.value)){ showError(full,'Please enter your full name.'); ok=false; } else clearError(full);
-
-    const email = q('[name="email"]');
-    if(!validators.required(email?.value) || !validators.email(email.value)){ showError(email,'Please enter a valid email (e.g. jane@example.com).'); ok=false; } else clearError(email);
-
-    const phone = q('[name="phone"]');
-    if(!validators.required(phone?.value) || !validators.phoneMD(phone.value)){ showError(phone,'Please enter a valid phone number (e.g. (410) 555-1234).'); ok=false; } else clearError(phone);
-
-    const dob = q('[name="dob"]');
-    if(!validators.required(dob?.value)){ showError(dob,'Please provide your date of birth.'); ok=false; } else clearError(dob);
-
-    const lic = q('[name="licenseNumber"]');
-    if(!validators.required(lic?.value)){ showError(lic,'Please provide your driver\'s license number.'); ok=false; }
-    else if(!/^[A-Z0-9\-\s]{4,20}$/i.test(lic.value.trim())){ showError(lic,'Use letters, numbers or dashes. Example: D12345678'); ok=false; } else clearError(lic);
-
-    // radio
-    const has = form.querySelector('input[name="l-hasIssues"]:checked');
-    const hasFb = document.getElementById('l-hasIssues-feedback');
-    if(!has){ if(hasFb){ hasFb.classList.add('d-block'); hasFb.textContent = 'Please indicate whether you have unpaid tickets or MVA holds.';} ok=false; } else { if(hasFb){ hasFb.classList.remove('d-block'); hasFb.textContent=''; } }
-
-    const sign = q('[name="signature"]');
-    if(!validators.required(sign?.value)){ showError(sign,'Please type your full name as signature.'); ok=false; } else clearError(sign);
-
-    const consent = q('[name="consent"]');
-    const consentFb = document.getElementById('l-consent-feedback');
-    if(!consent || !consent.checked){ if(consentFb){ consentFb.classList.add('d-block'); consentFb.textContent='You must consent for us to access your record.'; } if(consent) consent.classList.add('is-invalid'); ok=false; } else { if(consentFb){ consentFb.classList.remove('d-block'); consentFb.textContent=''; } if(consent) consent.classList.remove('is-invalid'); }
-
-    return ok;
-  }
-
-  // attach behavior
-  document.addEventListener('DOMContentLoaded', function(){
-    const vForm = document.getElementById('vehicle-form');
-    const lForm = document.getElementById('license-form');
-
-    function attachClear(form){
-      form.querySelectorAll('input,select,textarea').forEach(el=>{
-        el.addEventListener('input', ()=> { el.classList.remove('is-invalid'); const fb = findFB(el); if(fb) fb.textContent=''; });
-        el.addEventListener('change', ()=> { el.classList.remove('is-invalid'); const fb = findFB(el); if(fb) fb.textContent=''; });
-      });
-      form.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el=>{
-        el.addEventListener('change', ()=> {
-          // clear associated feedback boxes with known ids
-          const name = el.name;
-          const fb = document.getElementById(name+'-feedback') || document.getElementById('v-hasIssues-feedback') || document.getElementById('l-hasIssues-feedback');
-          if(fb){ fb.classList.remove('d-block'); fb.textContent=''; }
+                if (target === 'login') {
+                    document.getElementById('loginForm').classList.add('active');
+                    document.getElementById('loginForm').classList.remove('hidden');
+                    document.getElementById('registerForm').classList.remove('active');
+                    document.getElementById('registerForm').classList.add('hidden');
+                } else {
+                    document.getElementById('registerForm').classList.add('active');
+                    document.getElementById('registerForm').classList.remove('hidden');
+                    document.getElementById('loginForm').classList.remove('active');
+                    document.getElementById('loginForm').classList.add('hidden');
+                }
+            });
         });
-      });
-    }
 
-    if(vForm){
-      attachClear(vForm);
-      vForm.addEventListener('submit', function(e){
-        // clear prior group messages
-        const hasFb = document.getElementById('v-hasIssues-feedback'); if(hasFb){ hasFb.classList.remove('d-block'); hasFb.textContent=''; }
-        const consFb = document.getElementById('v-consent-feedback'); if(consFb){ consFb.classList.remove('d-block'); consFb.textContent=''; }
+        // Save form data to localStorage when user starts filling
+        const intakeForms = document.querySelectorAll('#vehicle-form, #license-form');
 
-        if(!validateVehicle(vForm)){
-          e.preventDefault(); e.stopPropagation();
-          const firstInvalid = vForm.querySelector('.is-invalid, .invalid-feedback.d-block');
-          if(firstInvalid) firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
+        intakeForms.forEach(form => {
+            // Save form data on input
+            form.addEventListener('input', debounce(function(e) {
+                if (!<?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>) {
+                    saveFormData(form);
+                }
+            }, 500));
+
+            // Save form data on change (for selects, radios, checkboxes)
+            form.addEventListener('change', function(e) {
+                if (!<?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>) {
+                    saveFormData(form);
+                }
+            });
+
+            // Handle form submission
+            form.addEventListener('submit', async function(e) {
+                const isLoggedIn = <?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>;
+
+                if (!isLoggedIn) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    // First, validate the form
+                    let isValid = false;
+                    if (this.id === 'vehicle-form') {
+                        try {
+                            isValid = validateVehicle(this);
+                        } catch (err) {
+                            isValid = simpleFormValidation(this);
+                        }
+                    } else if (this.id === 'license-form') {
+                        try {
+                            isValid = validateLicense(this);
+                        } catch (err) {
+                            isValid = simpleFormValidation(this);
+                        }
+                    }
+
+                    if (!isValid) {
+                        // Show first error
+                        const firstError = this.querySelector('.is-invalid, .invalid-feedback.d-block');
+                        if (firstError) {
+                            firstError.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }
+                        return false;
+                    }
+
+                    // Save final form data
+                    saveFormData(this);
+
+                    // Show login modal
+                    authModal.show();
+                    return false;
+                }
+                // If logged in, form will submit normally with validation
+            });
+        });
+
+       // Restore form data on page load if user was filling a form
+function restoreFormData() {
+    const savedData = localStorage.getItem('pendingFormData');
+    if (savedData) {
+        try {
+            const { formId, data, activeTab } = JSON.parse(savedData);
+            const form = document.getElementById(formId);
+            if (form) {
+                // Restore form values
+                Object.keys(data).forEach(key => {
+                    const element = form.querySelector(`[name="${key}"]`);
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = data[key] === 'on' || data[key] === true;
+                        } else if (element.type === 'radio') {
+                            const radio = form.querySelector(`[name="${key}"][value="${data[key]}"]`);
+                            if (radio) radio.checked = true;
+                        } else {
+                            element.value = data[key] || '';
+                        }
+                    }
+                });
+                
+                // Wait for Bootstrap to be fully loaded
+                setTimeout(() => {
+                    if (activeTab === 'license') {
+                        // Switch to license tab
+                        const licenseTab = document.getElementById('tab-license');
+                        const licensePanel = document.getElementById('panel-license');
+                        if (licenseTab && licensePanel) {
+                            // Remove active classes from vehicle tab
+                            const vehicleTab = document.getElementById('tab-vehicle');
+                            const vehiclePanel = document.getElementById('panel-vehicle');
+                            if (vehicleTab) vehicleTab.classList.remove('active');
+                            if (vehiclePanel) {
+                                vehiclePanel.classList.remove('show', 'active');
+                                vehiclePanel.classList.add('fade');
+                            }
+                            
+                            // Add active classes to license tab
+                            licenseTab.classList.add('active');
+                            licensePanel.classList.add('show', 'active');
+                            licensePanel.classList.remove('fade');
+                            
+                            // Trigger Bootstrap tab change
+                            const tabTrigger = new bootstrap.Tab(licenseTab);
+                            tabTrigger.show();
+                        }
+                    } else if (activeTab === 'vehicle') {
+                        // Switch to vehicle tab (default, but ensure it's active)
+                        const vehicleTab = document.getElementById('tab-vehicle');
+                        const vehiclePanel = document.getElementById('panel-vehicle');
+                        if (vehicleTab && vehiclePanel) {
+                            // Remove active classes from license tab
+                            const licenseTab = document.getElementById('tab-license');
+                            const licensePanel = document.getElementById('panel-license');
+                            if (licenseTab) licenseTab.classList.remove('active');
+                            if (licensePanel) {
+                                licensePanel.classList.remove('show', 'active');
+                                licensePanel.classList.add('fade');
+                            }
+                            
+                            // Add active classes to vehicle tab
+                            vehicleTab.classList.add('active');
+                            vehiclePanel.classList.add('show', 'active');
+                            vehiclePanel.classList.remove('fade');
+                            
+                            // Trigger Bootstrap tab change
+                            const tabTrigger = new bootstrap.Tab(vehicleTab);
+                            tabTrigger.show();
+                        }
+                    }
+                    
+                    // Scroll to form section
+                    setTimeout(() => {
+                        if (window.location.hash !== '#form') {
+                            window.location.hash = '#form';
+                            setTimeout(() => {
+                                window.scrollBy(0, -100); // Adjust for navbar
+                            }, 100);
+                        }
+                    }, 50);
+                }, 100);
+            }
+        } catch (e) {
+            console.error('Error restoring form data:', e);
         }
-      }, false);
     }
+}
+        // Call restore on page load
+        restoreFormData();
 
-    if(lForm){
-      attachClear(lForm);
-      lForm.addEventListener('submit', function(e){
-        const hasFb = document.getElementById('l-hasIssues-feedback'); if(hasFb){ hasFb.classList.remove('d-block'); hasFb.textContent=''; }
-        const consFb = document.getElementById('l-consent-feedback'); if(consFb){ consFb.classList.remove('d-block'); consFb.textContent=''; }
+        // Save form data to localStorage
+        function saveFormData(form) {
+            const formData = new FormData(form);
+            const data = {};
 
-        if(!validateLicense(lForm)){
-          e.preventDefault(); e.stopPropagation();
-          const firstInvalid = lForm.querySelector('.is-invalid, .invalid-feedback.d-block');
-          if(firstInvalid) firstInvalid.scrollIntoView({behavior:'smooth', block:'center'});
+            formData.forEach((value, key) => {
+                // Don't save file inputs
+                if (!key.includes('Files')) {
+                    data[key] = value;
+                }
+            });
+
+            const formObject = {
+                formId: form.id,
+                formType: form.id === 'vehicle-form' ? 'vehicle' : 'license',
+                data: data,
+                timestamp: Date.now(),
+                // Save which tab is active
+                activeTab: form.id === 'vehicle-form' ? 'vehicle' : 'license'
+            };
+
+            localStorage.setItem('pendingFormData', JSON.stringify(formObject));
         }
-      }, false);
-    }
-  });
-})();
+
+        // Clear saved form data after successful submission
+        function clearSavedFormData() {
+            localStorage.removeItem('pendingFormData');
+        }
+
+        // Simple form validation
+        function simpleFormValidation(form) {
+            let isValid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                if (!field.value.trim() && field.type !== 'checkbox' && field.type !== 'radio') {
+                    isValid = false;
+                    field.classList.add('is-invalid');
+                    let feedback = field.nextElementSibling;
+                    if (!feedback || !feedback.classList.contains('invalid-feedback')) {
+                        feedback = document.createElement('div');
+                        feedback.className = 'invalid-feedback';
+                        field.parentNode.appendChild(feedback);
+                    }
+                    feedback.textContent = 'This field is required';
+                } else if ((field.type === 'checkbox' || field.type === 'radio') && field.required && !field.checked) {
+                    isValid = false;
+                    // Handle radio/checkbox validation
+                    const name = field.name;
+                    const feedback = document.getElementById(name + '-feedback') ||
+                        document.getElementById('v-hasIssues-feedback') ||
+                        document.getElementById('l-hasIssues-feedback');
+                    if (feedback) {
+                        feedback.classList.add('d-block');
+                        feedback.textContent = 'This field is required';
+                    }
+                }
+            });
+            return isValid;
+        }
+
+        // Debounce helper
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Modal form submissions
+        loginForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            await handleAuthSubmit(this, 'assets/app/login.php', 'loginBtn', 'Logging in...');
+        });
+
+        registerForm.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            // Validate passwords match
+            const password = document.getElementById('modalRegisterPassword').value;
+            const confirmPassword = document.getElementById('modalRegisterConfirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showAuthError('Passwords do not match');
+                return;
+            }
+
+            if (password.length < 8) {
+                showAuthError('Password must be at least 8 characters');
+                return;
+            }
+
+            if (!/(?=.*[A-Za-z])(?=.*\d)/.test(password)) {
+                showAuthError('Password must contain both letters and numbers');
+                return;
+            }
+
+            await handleAuthSubmit(this, 'assets/app/register.php', 'registerBtn', 'Creating account...');
+        });
+
+        // Helper function to show auth errors in modal
+        function showAuthError(message) {
+            let errorDiv = document.querySelector('.auth-error');
+            if (!errorDiv) {
+                errorDiv = document.createElement('div');
+                errorDiv.className = 'auth-error alert alert-danger alert-dismissible fade show mt-3';
+                document.querySelector('.modal-body').insertBefore(errorDiv, document.querySelector('.auth-switch'));
+            }
+            errorDiv.innerHTML = `${message} <button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 5000);
+        }
+
+        // Handle authentication in modal
+        async function handleAuthSubmit(form, endpoint, buttonId, buttonText) {
+            const formData = new FormData(form);
+            const button = document.getElementById(buttonId);
+            const originalText = button.innerHTML;
+
+            try {
+                // Show loading state
+                button.disabled = true;
+                button.innerHTML = `<span class="btn-spinner"></span>${buttonText}`;
+
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Show success message
+                    button.innerHTML = `<span class="btn-spinner"></span>Success!`;
+
+                    // Close modal and refresh page after short delay
+                    setTimeout(() => {
+                        authModal.hide();
+                        // Refresh page to update navbar and session state
+                        window.location.reload();
+                    }, 1000);
+
+                } else {
+                    showAuthError(result.message || 'Authentication failed');
+                    button.disabled = false;
+                    button.innerHTML = originalText;
+                }
+            } catch (error) {
+                console.error('Auth error:', error);
+                showAuthError('Network error. Please try again.');
+                button.disabled = false;
+                button.innerHTML = originalText;
+            }
+        }
+
+        // Clear saved form data when form is submitted successfully (logged in)
+        intakeForms.forEach(form => {
+            form.addEventListener('submit', function() {
+                if (<?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>) {
+                    // Clear saved data on successful submission
+                    setTimeout(() => {
+                        clearSavedFormData();
+                    }, 1000);
+                }
+            });
+        });
+
+        // Auto-scroll to form section if there's saved data and user just logged in
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('redirect') && localStorage.getItem('pendingFormData')) {
+            window.location.hash = '#form';
+            setTimeout(() => {
+                window.scrollBy(0, -100); // Adjust for navbar
+            }, 100);
+        }
+    });
 </script>
+
+<!-- Your existing validation scripts (keep them as they are) -->
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  // small helper to restore a button (exposed for AJAX)
-  window.restoreSubmitButton = function(btn) {
-    if (!btn) return;
-    try {
-      btn.dataset.loading = 'false';
-      btn.classList.remove('btn-loading');
-      if (btn.tagName.toLowerCase() === 'input') {
-        btn.value = btn.dataset.origHtml || 'Submit';
-      } else {
-        btn.innerHTML = btn.dataset.origHtml || '';
-      }
-      btn.disabled = false;
-      if (btn.hasAttribute('data-fixed-width')) {
-        btn.style.width = '';
-        btn.removeAttribute('data-fixed-width');
-      }
-    } catch (err) {
-      console.error('restoreSubmitButton error', err);
-    }
-  };
-
-  // Mark the clicked submit button so submit handler knows which button started submit.
-  document.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      // clear clicked flag on all buttons in same form
-      if (btn.form) {
-        btn.form.querySelectorAll('button[type="submit"], input[type="submit"]').forEach(b => b.dataset.clicked = 'false');
-      }
-      btn.dataset.clicked = 'true';
-    }, {passive:true});
-  });
-
-  // Attach submit handlers for all forms
-  document.querySelectorAll('form').forEach(function(form) {
-    form.addEventListener('submit', function(e) {
-      try {
-        // If an earlier handler (your validators) called preventDefault(), stop — do not start loader.
-        if (e.defaultPrevented) {
-          return;
-        }
-
-        // find clicked button (or fallback to first submit in the form)
-        var submitBtn = form.querySelector('button[type="submit"][data-clicked="true"], input[type="submit"][data-clicked="true"]')
-                     || form.querySelector('button[type="submit"], input[type="submit"]');
-        if (!submitBtn) return;
-
-        // Prevent double work if already loading
-        if (submitBtn.dataset.loading === 'true') {
-          // already loading — prevent further submit
-          e.preventDefault();
-          return;
-        }
-
-        // record original content & set fixed width to avoid layout jump
-        if (!submitBtn.dataset.origHtml) submitBtn.dataset.origHtml = submitBtn.innerHTML || submitBtn.value || '';
-        if (!submitBtn.hasAttribute('data-fixed-width')) {
-          // compute rendered width and fix it so changing text doesn't shift layout
-          var rect = submitBtn.getBoundingClientRect();
-          submitBtn.style.width = Math.ceil(rect.width) + 'px';
-          submitBtn.setAttribute('data-fixed-width', '1');
-        }
-
-        // apply loading state
-        submitBtn.dataset.loading = 'true';
-        submitBtn.classList.add('btn-loading');
-
-        // detect whether this is an <input> or <button> and set the loading text accordingly
-        var isInput = submitBtn.tagName.toLowerCase() === 'input';
-        var spinnerHTML = '<span class="spinner" aria-hidden="true"></span>';
-        var loadingText = 'Processing...';
-
-        if (isInput) {
-          // input[type=submit] uses value
-          submitBtn.value = loadingText;
-        } else {
-          // button element: replace innerHTML with spinner + text
-          submitBtn.innerHTML = spinnerHTML + loadingText;
-        }
-
-        // disable the button to prevent double clicks
-        submitBtn.disabled = true;
-
-        // safety fallback: if form doesn't navigate away within 30s, re-enable and restore
-        var fallback = setTimeout(function() {
-          if (submitBtn && submitBtn.dataset && submitBtn.dataset.loading === 'true') {
-            window.restoreSubmitButton(submitBtn);
-          }
-        }, 30000);
-
-        // if client-side validation fails the browser will fire 'invalid' events.
-        // listen once for invalid events; if they occur, restore the button so user can fix inputs.
-        var invalidHandler = function(ev) {
-          // only restore if validation prevented submission
-          window.restoreSubmitButton(submitBtn);
-          form.removeEventListener('invalid', invalidHandler, true);
+    (function() {
+        // validators
+        const validators = {
+            email: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test((v || '').trim()),
+            phoneMD: v => {
+                const digits = (v || '').replace(/\D/g, '');
+                return digits.length >= 7 && digits.length <= 15;
+            },
+            // stricter MD plate: require at least one letter AND one digit; allow letters, digits, spaces, hyphens; 4-10 chars total
+            plateMD: v => {
+                if (!v) return false;
+                const s = String(v).trim();
+                if (/[IOQ]/i.test(s)) return false; // disallow I/O/Q for standard plates
+                if (!/^[A-Za-z0-9\s\-]{4,10}$/.test(s)) return false;
+                // require at least one letter & one digit
+                return /[A-Za-z]/.test(s) && /\d/.test(s);
+            },
+            vinMD: v => {
+                if (!v) return true; // optional: only validate when filled
+                const s = String(v).replace(/\s+/g, '').toUpperCase();
+                return /^[A-HJ-NPR-Z0-9]{17}$/.test(s);
+            },
+            required: v => v !== null && v !== undefined && String(v).trim() !== ''
         };
-        form.addEventListener('invalid', invalidHandler, true);
 
-        // If you use AJAX for submission, call window.restoreSubmitButton(submitBtn) on failure.
+        // helper: find immediate invalid-feedback after element
+        function findFB(el) {
+            if (!el) return null;
+            let next = el.nextElementSibling;
+            if (next && next.classList && next.classList.contains('invalid-feedback')) return next;
+            return null;
+        }
 
-      } catch (err) {
-        // if anything goes wrong, don't block the form — restore button
-        console.error('Submit loader failure', err);
-      }
-    }, false);
-  });
-});
+        function showError(el, msg) {
+            if (!el) return;
+            el.classList.add('is-invalid');
+            el.classList.remove('is-valid');
+            const fb = findFB(el);
+            if (fb) fb.textContent = msg;
+        }
+
+        function clearError(el) {
+            if (!el) return;
+            el.classList.remove('is-invalid');
+            el.classList.add('is-valid');
+            const fb = findFB(el);
+            if (fb) fb.textContent = '';
+        }
+
+        // vehicle form validation - MAKE GLOBALLY AVAILABLE
+        window.validateVehicle = function(form) {
+            let ok = true;
+            const q = sel => form.querySelector(sel);
+
+            const full = q('[name="fullName"]');
+            if (!validators.required(full?.value)) {
+                showError(full, 'Please enter your full name.');
+                ok = false;
+            } else clearError(full);
+
+            const email = q('[name="email"]');
+            if (!validators.required(email?.value) || !validators.email(email?.value)) {
+                showError(email, 'Please enter a valid email (e.g. jane@example.com).');
+                ok = false;
+            } else clearError(email);
+
+            const phone = q('[name="phone"]');
+            if (!validators.required(phone?.value) || !validators.phoneMD(phone.value)) {
+                showError(phone, 'Please enter a valid phone number (e.g. (410) 555-1234).');
+                ok = false;
+            } else clearError(phone);
+
+            const dob = q('[name="dob"]');
+            if (!validators.required(dob?.value)) {
+                showError(dob, 'Please provide your date of birth.');
+                ok = false;
+            } else clearError(dob);
+
+            const plate = q('[name="plate"]');
+            if (!validators.required(plate?.value) || !validators.plateMD(plate.value)) {
+                showError(plate, 'Enter a valid Maryland plate that includes letters and numbers (example: ABC-1234).');
+                ok = false;
+            } else clearError(plate);
+
+            const vin = q('[name="vin"]');
+            if (vin && vin.value.trim() !== '' && !validators.vinMD(vin.value)) {
+                showError(vin, 'VIN must be 17 characters; letters/numbers only; avoid I, O, Q.');
+                ok = false;
+            } else if (vin) clearError(vin);
+
+            const renew = q('[name="renewWhen"]');
+            if (!validators.required(renew?.value)) {
+                showError(renew, 'Please select when your renewal is due.');
+                ok = false;
+            } else clearError(renew);
+
+            // radio group v-hasIssues
+            const has = form.querySelector('input[name="v-hasIssues"]:checked');
+            const hasFb = document.getElementById('v-hasIssues-feedback');
+            if (!has) {
+                if (hasFb) {
+                    hasFb.classList.add('d-block');
+                    hasFb.textContent = 'Please indicate whether you have outstanding tickets or flags.';
+                }
+                ok = false;
+            } else {
+                if (hasFb) {
+                    hasFb.classList.remove('d-block');
+                    hasFb.textContent = '';
+                }
+            }
+
+            const delivery = q('[name="delivery"]');
+            if (!validators.required(delivery?.value)) {
+                showError(delivery, 'Please select a delivery method.');
+                ok = false;
+            } else clearError(delivery);
+
+            const referral = q('[name="referral"]');
+            if (!validators.required(referral?.value)) {
+                showError(referral, 'Please tell us how you heard about us.');
+                ok = false;
+            } else clearError(referral);
+
+            const consent = q('[name="consent"]');
+            const consentFb = document.getElementById('v-consent-feedback');
+            if (!consent || !consent.checked) {
+                if (consentFb) {
+                    consentFb.classList.add('d-block');
+                    consentFb.textContent = 'You must consent to allow us access to your MVA records.';
+                }
+                if (consent) consent.classList.add('is-invalid');
+                ok = false;
+            } else {
+                if (consentFb) {
+                    consentFb.classList.remove('d-block');
+                    consentFb.textContent = '';
+                }
+                if (consent) consent.classList.remove('is-invalid');
+            }
+
+            return ok;
+        }
+
+        // license form validation - MAKE GLOBALLY AVAILABLE
+        window.validateLicense = function(form) {
+            let ok = true;
+            const q = sel => form.querySelector(sel);
+
+            const full = q('[name="fullName"]');
+            if (!validators.required(full?.value)) {
+                showError(full, 'Please enter your full name.');
+                ok = false;
+            } else clearError(full);
+
+            const email = q('[name="email"]');
+            if (!validators.required(email?.value) || !validators.email(email.value)) {
+                showError(email, 'Please enter a valid email (e.g. jane@example.com).');
+                ok = false;
+            } else clearError(email);
+
+            const phone = q('[name="phone"]');
+            if (!validators.required(phone?.value) || !validators.phoneMD(phone.value)) {
+                showError(phone, 'Please enter a valid phone number (e.g. (410) 555-1234).');
+                ok = false;
+            } else clearError(phone);
+
+            const dob = q('[name="dob"]');
+            if (!validators.required(dob?.value)) {
+                showError(dob, 'Please provide your date of birth.');
+                ok = false;
+            } else clearError(dob);
+
+            const lic = q('[name="licenseNumber"]');
+            if (!validators.required(lic?.value)) {
+                showError(lic, 'Please provide your driver\'s license number.');
+                ok = false;
+            } else if (!/^[A-Z0-9\-\s]{4,20}$/i.test(lic.value.trim())) {
+                showError(lic, 'Use letters, numbers or dashes. Example: D12345678');
+                ok = false;
+            } else clearError(lic);
+
+            // radio
+            const has = form.querySelector('input[name="l-hasIssues"]:checked');
+            const hasFb = document.getElementById('l-hasIssues-feedback');
+            if (!has) {
+                if (hasFb) {
+                    hasFb.classList.add('d-block');
+                    hasFb.textContent = 'Please indicate whether you have unpaid tickets or MVA holds.';
+                }
+                ok = false;
+            } else {
+                if (hasFb) {
+                    hasFb.classList.remove('d-block');
+                    hasFb.textContent = '';
+                }
+            }
+
+            const sign = q('[name="signature"]');
+            if (!validators.required(sign?.value)) {
+                showError(sign, 'Please type your full name as signature.');
+                ok = false;
+            } else clearError(sign);
+
+            const consent = q('[name="consent"]');
+            const consentFb = document.getElementById('l-consent-feedback');
+            if (!consent || !consent.checked) {
+                if (consentFb) {
+                    consentFb.classList.add('d-block');
+                    consentFb.textContent = 'You must consent for us to access your record.';
+                }
+                if (consent) consent.classList.add('is-invalid');
+                ok = false;
+            } else {
+                if (consentFb) {
+                    consentFb.classList.remove('d-block');
+                    consentFb.textContent = '';
+                }
+                if (consent) consent.classList.remove('is-invalid');
+            }
+
+            return ok;
+        }
+
+        // attach behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            const vForm = document.getElementById('vehicle-form');
+            const lForm = document.getElementById('license-form');
+
+            function attachClear(form) {
+                form.querySelectorAll('input,select,textarea').forEach(el => {
+                    el.addEventListener('input', () => {
+                        el.classList.remove('is-invalid');
+                        const fb = findFB(el);
+                        if (fb) fb.textContent = '';
+                    });
+                    el.addEventListener('change', () => {
+                        el.classList.remove('is-invalid');
+                        const fb = findFB(el);
+                        if (fb) fb.textContent = '';
+                    });
+                });
+                form.querySelectorAll('input[type="radio"], input[type="checkbox"]').forEach(el => {
+                    el.addEventListener('change', () => {
+                        // clear associated feedback boxes with known ids
+                        const name = el.name;
+                        const fb = document.getElementById(name + '-feedback') || document.getElementById('v-hasIssues-feedback') || document.getElementById('l-hasIssues-feedback');
+                        if (fb) {
+                            fb.classList.remove('d-block');
+                            fb.textContent = '';
+                        }
+                    });
+                });
+            }
+
+            // In your validation script, update the form submit handlers:
+            if (vForm) {
+                attachClear(vForm);
+                vForm.addEventListener('submit', function(e) {
+                    // clear prior group messages
+                    const hasFb = document.getElementById('v-hasIssues-feedback');
+                    if (hasFb) {
+                        hasFb.classList.remove('d-block');
+                        hasFb.textContent = '';
+                    }
+                    const consFb = document.getElementById('v-consent-feedback');
+                    if (consFb) {
+                        consFb.classList.remove('d-block');
+                        consFb.textContent = '';
+                    }
+
+                    // Clear saved form data on successful submission when logged in
+                    const isLoggedIn = <?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>;
+                    if (isLoggedIn) {
+                        // Only validate if logged in (for direct submission)
+                        if (!validateVehicle(vForm)) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const firstInvalid = vForm.querySelector('.is-invalid, .invalid-feedback.d-block');
+                            if (firstInvalid) firstInvalid.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }
+                    }
+                }, false);
+            }
+
+            if (lForm) {
+                attachClear(lForm);
+                lForm.addEventListener('submit', function(e) {
+                    const hasFb = document.getElementById('l-hasIssues-feedback');
+                    if (hasFb) {
+                        hasFb.classList.remove('d-block');
+                        hasFb.textContent = '';
+                    }
+                    const consFb = document.getElementById('l-consent-feedback');
+                    if (consFb) {
+                        consFb.classList.remove('d-block');
+                        consFb.textContent = '';
+                    }
+
+                    // Don't run validation here if user is not logged in
+                    const isLoggedIn = <?php echo isset($_SESSION['logged_in']) && $_SESSION['logged_in'] ? 'true' : 'false'; ?>;
+                    if (isLoggedIn) {
+                        // Only validate if logged in (for direct submission)
+                        if (!validateLicense(lForm)) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            const firstInvalid = lForm.querySelector('.is-invalid, .invalid-feedback.d-block');
+                            if (firstInvalid) firstInvalid.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                        }
+                    }
+                    // If not logged in, the auth modal flow will handle validation
+                }, false);
+            }
+        });
+    })();
 </script>
 
 </html>

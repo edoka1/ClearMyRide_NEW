@@ -1,5 +1,5 @@
 <?php
-// assets/app/db_connect.php - MAMP-friendly (explicit port)
+
 $host = '127.0.0.1';
 $port = 8889;               // <- MAMP MySQL default port
 $db   = 'clear_my_ride';
@@ -21,3 +21,4 @@ try {
     echo "Database connection failed: " . $e->getMessage();
     exit;
 }
+

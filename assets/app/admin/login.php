@@ -14,13 +14,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("SELECT * FROM admin_users WHERE username = :u LIMIT 1");
     $stmt->execute([':u' => $username]);
     $user = $stmt->fetch();
-    if ($user && password_verify($password, $user['password'])) {
-      // login success
-      $_SESSION['admin_id'] = $user['id'];
-      $_SESSION['admin_username'] = $user['username'];
-      header("Location: dashboard.php");
-      exit;
-    } else {
+   if ($user && password_verify($password, $user['password'])) {
+    // 👇 NEW: Clear any existing client session
+    if (isset($_SESSION['user_id']) || isset($_SESSION['logged_in'])) {
+        unset(
+            $_SESSION['user_id'],
+            $_SESSION['user_email'],
+            $_SESSION['user_name'],
+            $_SESSION['logged_in']
+        );
+    }
+
+    // login success
+    $_SESSION['admin_id'] = $user['id'];
+    $_SESSION['admin_username'] = $user['username'];
+    header("Location: dashboard.php");
+    exit;
+} else {
       $err = 'Invalid username or password.';
     }
   }
@@ -110,14 +120,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <span class="input-group-text bg-light border-end-0">
                 <i class="bi bi-lock text-muted"></i>
               </span>
-              <input type="password"
+
+              <input
+                type="password"
                 name="password"
                 id="password"
-                class="form-control border-start-0"
+                class="form-control border-start-0 border-end-0"
                 placeholder="Enter your password"
                 required>
+
+              <button
+                class="input-group-text bg-light border-start-0"
+                type="button"
+                id="togglePassword"
+                style="cursor:pointer;">
+                <i class="bi bi-eye-slash" id="toggleIcon"></i>
+              </button>
             </div>
           </div>
+
 
           <div class="d-grid">
             <button type="submit" class="btn btn-primary btn-lg">
@@ -154,6 +175,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+  const passwordInput = document.getElementById('password');
+  const toggleBtn = document.getElementById('togglePassword');
+  const toggleIcon = document.getElementById('toggleIcon');
+
+  toggleBtn.addEventListener('click', () => {
+    const isPassword = passwordInput.type === 'password';
+
+    passwordInput.type = isPassword ? 'text' : 'password';
+    toggleIcon.classList.toggle('bi-eye');
+    toggleIcon.classList.toggle('bi-eye-slash');
+  });
+</script>
+
 </body>
 
 </html>

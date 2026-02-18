@@ -1430,3 +1430,482 @@ html {
 
 /* keep width stable while swapping innerHTML */
 .btn[data-fixed-width] { display:inline-block; }
+
+
+
+
+
+
+
+
+
+/* Request cards */
+.request-card {
+    border: 1px solid var(--clr-border);
+    border-radius: 16px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.request-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.request-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.request-icon.bg-primary {
+    background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+}
+
+.request-icon.bg-info {
+    background: linear-gradient(135deg, #3ba7ff, #0a57ff);
+}
+
+/* Alert messages */
+.alert {
+    border-radius: 8px;
+    border: none;
+    padding: 12px 16px;
+}
+
+.alert-info {
+    background-color: rgba(59, 167, 255, 0.1);
+    color: var(--clr-accent);
+    border-left: 4px solid var(--clr-accent);
+}
+
+.alert-success {
+    background-color: rgba(61, 220, 132, 0.1);
+    color: var(--clr-green);
+    border-left: 4px solid var(--clr-green);
+}
+
+.alert-error {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border-left: 4px solid #ef4444;
+}
+
+/* Button loading state */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn-loading .spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Form improvements */
+.form-control:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 0.25rem rgba(10, 87, 255, 0.25);
+}
+
+.form-check-input:focus {
+    border-color: var(--clr-primary);
+    box-shadow: 0 0 0 0.25rem rgba(10, 87, 255, 0.25);
+}
+
+/* Badge variants */
+.badge.bg-primary { background-color: var(--clr-primary); }
+.badge.bg-success { background-color: var(--clr-green); }
+.badge.bg-warning { background-color: #f59e0b; }
+.badge.bg-info { background-color: var(--clr-accent); }
+.badge.bg-danger { background-color: #ef4444; }
+
+/* Modal animations */
+.modal.fade .modal-dialog {
+    transform: translateY(-50px);
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: translateY(0);
+}
+
+/* ===== NAV BAR ===== */
+.nav {
+    background-color: var(--clr-white);
+    font-family: var(--font-body);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* BRAND */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.brand-text {
+    font-family: var(--font-heading);
+    font-weight: bold;
+    color: var(--clr-dark);
+}
+
+/* NAV ACTION BUTTONS */
+.nav-actions .btn {
+    padding: 8px 20px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 2px solid var(--clr-primary);
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 12px;
+    border-radius: 0; /* NO rounded corners */
+    transition: all 0.2s ease;
+}
+
+.nav-actions .btn:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-primary);
+    border-color: var(--clr-primary);
+}
+
+/* OUTLINE BUTTON */
+.nav-actions .btn-outline {
+    background-color: transparent;
+    color: var(--clr-primary);
+    border: 2px solid var(--clr-primary);
+}
+
+.nav-actions .btn-outline:hover {
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+}
+
+/* ===== USER DROPDOWN ===== */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-menu-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--clr-primary);
+    color: var(--clr-white);
+    padding: 8px 16px;
+    font-weight: 500;
+    border: 2px solid var(--clr-primary);
+    border-radius: 0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.user-menu-btn:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-primary);
+}
+
+/* DROPDOWN MENU */
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 200px;
+    background: var(--clr-white);
+    border: 1px solid var(--clr-border);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    padding: 8px 0;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(5px);
+    transition: all 0.2s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    color: var(--clr-dark);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+    background-color: var(--clr-accent);
+    color: var(--clr-white);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background-color: var(--clr-border);
+    margin: 8px 0;
+}
+
+
+/* ===== AUTH MODAL – MINIMALIST, SHARP, CLEAN ===== */
+:root {
+  --clr-primary: #0a57ff;
+  --clr-accent: #3ba7ff;
+  --clr-white: #ffffff;
+  --clr-dark: #12161c;
+  --clr-muted: #6b7280;
+  --clr-border: #e5e7eb;
+  --font-heading: "Poppins", sans-serif;
+  --font-body: "Inter", sans-serif;
+}
+
+/* Modal container – no rounding, clean backdrop */
+.modal-auth .modal-dialog {
+  max-width: 450px;
+  margin: 1.75rem auto;
+}
+.modal-auth .modal-content {
+  border: 1px solid var(--clr-border);
+  border-radius: 0 !important;        /* sharp corners */
+  box-shadow: 0 15px 30px -12px rgba(0,0,0,0.1);
+  background: var(--clr-white);
+  padding: 0;
+}
+
+/* Header – minimal, borderless */
+.modal-auth .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.75rem 0.75rem;
+  border-bottom: none;
+}
+.modal-auth .modal-header .modal-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: var(--clr-dark);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.modal-auth .modal-header .btn-close {
+  margin: 0;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--clr-muted);
+  opacity: 0.8;
+  transition: opacity 0.1s;
+}
+.modal-auth .modal-header .btn-close:hover {
+  opacity: 1;
+}
+.modal-auth .modal-header .btn-close::before {
+  content: "✕";
+  display: inline-block;
+}
+
+/* Body – clean spacing */
+.modal-auth .modal-body {
+  padding: 0.5rem 1.75rem 1.75rem;
+}
+
+/* Authentication message */
+.modal-auth .auth-message {
+  background: var(--clr-surface, #fafbfc);
+  border: 1px solid var(--clr-border);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.modal-auth .auth-message p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--clr-dark);
+}
+.modal-auth .auth-message strong {
+  color: var(--clr-primary);
+}
+
+/* Form containers */
+.modal-auth .auth-form {
+  display: none;
+}
+.modal-auth .auth-form.active {
+  display: block;
+}
+.modal-auth .auth-form.hidden {
+  display: none;
+}
+.modal-auth .auth-form h5 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--clr-dark);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+/* Form elements – sharp, consistent with auth pages */
+.modal-auth .form-label {
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--clr-muted);
+  margin-bottom: 0.25rem;
+}
+.modal-auth .form-control {
+  border: 1.5px solid var(--clr-border);
+  padding: 0.65rem 1rem;
+  font-size: 0.95rem;
+  background: var(--clr-white);
+  border-radius: 0 !important;
+  transition: none;
+}
+.modal-auth .form-control:focus {
+  border-color: var(--clr-dark);
+  box-shadow: none;
+  outline: 2px solid rgba(18,22,28,0.05);
+}
+.modal-auth .form-text {
+  font-size: 0.7rem;
+  color: var(--clr-muted);
+  margin-top: 0.2rem;
+}
+
+/* Checkbox – sharp */
+.modal-auth .form-check {
+  margin-top: 0.5rem;
+}
+.modal-auth .form-check-input {
+  border: 1.5px solid var(--clr-border);
+  border-radius: 0 !important;
+  margin-top: 0.15rem;
+}
+.modal-auth .form-check-input:checked {
+  background-color: var(--clr-primary);
+  border-color: var(--clr-primary);
+}
+.modal-auth .form-check-label {
+  font-size: 0.85rem;
+  color: var(--clr-dark);
+}
+.modal-auth .form-check-label a {
+  color: var(--clr-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: none;
+}
+.modal-auth .form-check-label a:hover {
+  border-bottom-color: var(--clr-primary);
+}
+
+/* Primary action button */
+.modal-auth .auth-btn {
+  width: 100%;
+  background: var(--clr-primary);
+  border: none;
+  color: var(--clr-white);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  letter-spacing: 0.02em;
+  border-radius: 0 !important;
+  transition: none;
+  margin-top: 0.5rem;
+}
+.modal-auth .auth-btn:hover {
+  background: #0046cc;   /* slightly darker primary */
+}
+.modal-auth .auth-btn:disabled {
+  background: var(--clr-muted);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Spinner inside button */
+.modal-auth .btn-spinner {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  border: 2px solid var(--clr-white);
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner 0.6s linear infinite;
+}
+@keyframes spinner {
+  to { transform: rotate(360deg); }
+}
+
+/* Switch links – clean, minimalist */
+.modal-auth .auth-switch {
+  margin-top: 1.5rem;
+  text-align: center;
+  border-top: 1px solid var(--clr-border);
+  padding-top: 1.25rem;
+}
+.modal-auth .auth-switch p {
+  font-size: 0.85rem;
+  color: var(--clr-muted);
+}
+.modal-auth .auth-switch .switch-link {
+  color: var(--clr-dark);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: none;
+  margin-left: 0.25rem;
+}
+.modal-auth .auth-switch .switch-link:hover {
+  border-bottom-color: var(--clr-dark);
+}
+
+/* Error message styling */
+.modal-auth .auth-error {
+  border: 1px solid #dc3545;
+  background: rgba(220,53,69,0.05);
+  color: #dc3545;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  border-radius: 0 !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .modal-auth .modal-dialog {
+    margin: 0.5rem;
+  }
+  .modal-auth .modal-body {
+    padding: 0.5rem 1.25rem 1.5rem;
+  }
+}

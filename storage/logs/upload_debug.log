@@ -309,3 +309,451 @@
 2025-10-16 05:18:37 - send_mail success to divineojo12345@gmail.com subject=Welcome to ClearMyRide — You’re Early to the Future of Tag Renewals
 2025-10-16 05:18:37 - Admin email sent? yes
 2025-10-16 05:18:37 - Client email sent? yes
+2026-02-08 16:41:37 - === submit_vehicle.php called ===
+2026-02-08 16:41:37 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 16:41:37 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 16:41:37 - Inserted vehicle_requests id=1
+2026-02-08 16:41:37 - No vehicleFiles[] provided in _FILES
+2026-02-08 16:41:37 - Transaction committed for vehicle_requests id=1
+2026-02-08 16:42:52 - send_mail FAILED to support@clearmyride.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 16:44:07 - send_mail FAILED to nuha@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 16:44:07 - Admin email sent? no
+2026-02-08 16:44:07 - Client email sent? no
+2026-02-08 17:01:32 - === submit_vehicle.php called ===
+2026-02-08 17:01:32 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 17:01:32 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:01:32 - Inserted vehicle_requests id=2
+2026-02-08 17:01:32 - No vehicleFiles[] provided in _FILES
+2026-02-08 17:01:32 - Transaction committed for vehicle_requests id=2
+2026-02-08 17:02:47 - send_mail FAILED to support@clearmyride.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:04:02 - send_mail FAILED to xojamav@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:04:02 - Admin email sent? no
+2026-02-08 17:04:02 - Client email sent? no
+2026-02-08 17:17:49 - === submit_vehicle.php called ===
+2026-02-08 17:17:49 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 17:17:49 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:17:49 - Inserted vehicle_requests id=3
+2026-02-08 17:17:49 - No vehicleFiles[] provided in _FILES
+2026-02-08 17:17:49 - Transaction committed for vehicle_requests id=3
+2026-02-08 17:19:05 - send_mail FAILED to support@clearmyride.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:20:20 - send_mail FAILED to rewuce@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:20:20 - Admin email sent? no
+2026-02-08 17:20:20 - Client email sent? no
+2026-02-08 17:25:15 - === submit_license.php called ===
+2026-02-08 17:25:15 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:31:39 - === submit_vehicle.php called ===
+2026-02-08 17:31:39 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 17:31:39 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:31:39 - Inserted vehicle_requests id=4
+2026-02-08 17:31:39 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-08 17:31:39 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/4/
+2026-02-08 17:31:39 - Processing file index 0 name= error=4
+2026-02-08 17:31:39 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-08 17:31:39 - Transaction committed for vehicle_requests id=4
+2026-02-08 17:32:54 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:34:09 - send_mail FAILED to wosonygo@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:34:09 - Admin email sent? no
+2026-02-08 17:34:09 - Client email sent? no
+2026-02-08 17:34:09 - === submit_vehicle.php called ===
+2026-02-08 17:34:09 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 17:34:09 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:34:09 - Inserted vehicle_requests id=5
+2026-02-08 17:34:09 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-08 17:34:09 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/5/
+2026-02-08 17:34:09 - Processing file index 0 name= error=4
+2026-02-08 17:34:09 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-08 17:34:09 - Transaction committed for vehicle_requests id=5
+2026-02-08 17:35:24 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:36:39 - send_mail FAILED to wosonygo@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:36:39 - Admin email sent? no
+2026-02-08 17:36:39 - Client email sent? no
+2026-02-08 17:47:20 - === submit_vehicle.php called ===
+2026-02-08 17:47:20 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 17:47:20 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 17:47:20 - Inserted vehicle_requests id=6
+2026-02-08 17:47:20 - No vehicleFiles[] provided in _FILES
+2026-02-08 17:47:20 - Transaction committed for vehicle_requests id=6
+2026-02-08 17:48:35 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:49:50 - send_mail FAILED to tasuja@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 17:49:50 - Admin email sent? no
+2026-02-08 17:49:50 - Client email sent? no
+2026-02-08 18:31:34 - === submit_vehicle.php called ===
+2026-02-08 18:31:34 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 18:31:34 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 18:31:34 - Inserted vehicle_requests id=7
+2026-02-08 18:31:34 - No vehicleFiles[] provided in _FILES
+2026-02-08 18:31:34 - Transaction committed for vehicle_requests id=7
+2026-02-08 18:32:49 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 18:34:04 - send_mail FAILED to mefyz@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 18:34:04 - Admin email sent? no
+2026-02-08 18:34:04 - Client email sent? no
+2026-02-08 18:38:47 - === submit_license.php called ===
+2026-02-08 18:38:47 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 18:38:47 - Inserted license_requests id=10
+2026-02-08 18:38:47 - No licenseFiles[] provided in _FILES
+2026-02-08 18:38:47 - Transaction committed for license_requests id=10
+2026-02-08 18:40:02 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 18:41:18 - send_mail FAILED to mexe@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 18:41:18 - Admin email sent? no
+2026-02-08 18:41:18 - Client email sent? no
+2026-02-08 19:25:01 - === submit_vehicle.php called ===
+2026-02-08 19:25:01 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 19:25:01 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 19:25:01 - Inserted vehicle_requests id=9
+2026-02-08 19:25:01 - No vehicleFiles[] provided in _FILES
+2026-02-08 19:25:01 - Transaction committed for vehicle_requests id=9
+2026-02-08 19:26:16 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 19:27:31 - send_mail FAILED to zuwumytyl@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 19:27:31 - Admin email sent? no
+2026-02-08 19:27:31 - Client email sent? no
+2026-02-08 19:50:25 - === submit_vehicle.php called ===
+2026-02-08 19:50:25 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-08 19:50:25 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-08 19:50:25 - Inserted vehicle_requests id=10
+2026-02-08 19:50:25 - No vehicleFiles[] provided in _FILES
+2026-02-08 19:50:25 - Transaction committed for vehicle_requests id=10
+2026-02-08 19:51:40 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 19:52:55 - send_mail FAILED to cewipe@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-08 19:52:55 - Admin email sent? no
+2026-02-08 19:52:55 - Client email sent? no
+2026-02-09 06:03:48 - === submit_vehicle.php called ===
+2026-02-09 06:03:48 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-09 06:03:48 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-09 06:03:48 - Inserted vehicle_requests id=11
+2026-02-09 06:03:48 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-09 06:03:48 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/11/
+2026-02-09 06:03:48 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/11/
+2026-02-09 06:03:48 - Processing file index 0 name= error=4
+2026-02-09 06:03:48 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-09 06:03:48 - Transaction committed for vehicle_requests id=11
+2026-02-09 06:03:52 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Dylan Weaver
+2026-02-09 06:03:55 - send_mail success to jadyru@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-09 06:03:55 - Admin email sent? yes
+2026-02-09 06:03:55 - Client email sent? yes
+2026-02-09 06:15:23 - === submit_license.php called ===
+2026-02-09 06:15:23 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-09 06:15:23 - Inserted license_requests id=11
+2026-02-09 06:15:23 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2026-02-09 06:15:23 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/11/
+2026-02-09 06:15:23 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/11/
+2026-02-09 06:15:23 - Processing file index 0 name= error=4
+2026-02-09 06:15:23 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-09 06:15:23 - Transaction committed for license_requests id=11
+2026-02-09 06:15:29 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request — Timothy Roth
+2026-02-09 06:15:34 - send_mail success to nymikixewy@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of License Renewals
+2026-02-09 06:15:34 - Admin email sent? yes
+2026-02-09 06:15:34 - Client email sent? yes
+2026-02-09 06:18:30 - === submit_vehicle.php called ===
+2026-02-09 06:18:30 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-09 06:18:30 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-09 06:18:30 - Inserted vehicle_requests id=13
+2026-02-09 06:18:30 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-09 06:18:30 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/13/
+2026-02-09 06:18:30 - Processing file index 0 name= error=4
+2026-02-09 06:18:30 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-09 06:18:30 - Transaction committed for vehicle_requests id=13
+2026-02-09 06:18:34 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Shelley Clay
+2026-02-09 06:18:38 - send_mail success to wuwefuzuf@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-09 06:18:38 - Admin email sent? yes
+2026-02-09 06:18:38 - Client email sent? yes
+2026-02-09 06:26:44 - === submit_license.php called ===
+2026-02-09 06:26:44 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-09 06:26:44 - Inserted license_requests id=12
+2026-02-09 06:26:44 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2026-02-09 06:26:44 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/12/
+2026-02-09 06:26:44 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/12/
+2026-02-09 06:26:44 - Processing file index 0 name= error=4
+2026-02-09 06:26:44 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-09 06:26:44 - Transaction committed for license_requests id=12
+2026-02-09 06:26:48 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request — Emerson Howard
+2026-02-09 06:26:51 - send_mail success to cimusesa@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of License Renewals
+2026-02-09 06:26:51 - Admin email sent? yes
+2026-02-09 06:26:51 - Client email sent? yes
+2026-02-11 10:54:01 - === submit_vehicle.php called ===
+2026-02-11 10:54:01 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 10:54:01 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 10:54:01 - Inserted vehicle_requests id=15
+2026-02-11 10:54:01 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 10:54:01 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/15/
+2026-02-11 10:54:01 - Processing file index 0 name= error=4
+2026-02-11 10:54:01 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 10:54:01 - Transaction committed for vehicle_requests id=15
+2026-02-11 10:55:16 - send_mail FAILED to divineojo12345@gmail.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-11 10:56:31 - send_mail FAILED to gusuke@mailinator.com: SMTP Error: Could not connect to SMTP host. Failed to connect to server SMTP server error: Failed to connect to server SMTP code: 60 Additional SMTP info: Operation timed out | Exception: SMTP Error: Could not connect to SMTP host. Failed to connect to server
+2026-02-11 10:56:31 - Admin email sent? no
+2026-02-11 10:56:31 - Client email sent? no
+2026-02-11 10:56:31 - === submit_vehicle.php called ===
+2026-02-11 10:56:31 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 10:56:31 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 10:56:31 - Inserted vehicle_requests id=16
+2026-02-11 10:56:31 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 10:56:31 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/16/
+2026-02-11 10:56:31 - Processing file index 0 name= error=4
+2026-02-11 10:56:31 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 10:56:31 - Transaction committed for vehicle_requests id=16
+2026-02-11 10:56:35 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Janna Mcpherson
+2026-02-11 10:56:38 - send_mail success to gusuke@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-11 10:56:38 - Admin email sent? yes
+2026-02-11 10:56:38 - Client email sent? yes
+2026-02-11 10:56:38 - === submit_vehicle.php called ===
+2026-02-11 10:56:38 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 10:56:38 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 10:56:38 - Inserted vehicle_requests id=17
+2026-02-11 10:56:38 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 10:56:38 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/17/
+2026-02-11 10:56:38 - Processing file index 0 name= error=4
+2026-02-11 10:56:38 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 10:56:38 - Transaction committed for vehicle_requests id=17
+2026-02-11 10:56:42 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Janna Mcpherson
+2026-02-11 10:56:45 - send_mail success to gusuke@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-11 10:56:45 - Admin email sent? yes
+2026-02-11 10:56:45 - Client email sent? yes
+2026-02-11 10:56:45 - === submit_vehicle.php called ===
+2026-02-11 10:56:45 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 10:56:45 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 10:56:45 - Inserted vehicle_requests id=18
+2026-02-11 10:56:45 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 10:56:45 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/18/
+2026-02-11 10:56:45 - Processing file index 0 name= error=4
+2026-02-11 10:56:45 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 10:56:45 - Transaction committed for vehicle_requests id=18
+2026-02-11 10:56:49 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Janna Mcpherson
+2026-02-11 10:56:53 - send_mail success to gusuke@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-11 10:56:53 - Admin email sent? yes
+2026-02-11 10:56:53 - Client email sent? yes
+2026-02-11 10:57:01 - === submit_vehicle.php called ===
+2026-02-11 10:57:01 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 10:57:01 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 10:57:01 - Inserted vehicle_requests id=19
+2026-02-11 10:57:01 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 10:57:01 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/19/
+2026-02-11 10:57:01 - Processing file index 0 name= error=4
+2026-02-11 10:57:01 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 10:57:01 - Transaction committed for vehicle_requests id=19
+2026-02-11 10:57:04 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Janna Mcpherson
+2026-02-11 10:57:08 - send_mail success to gusuke@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-11 10:57:08 - Admin email sent? yes
+2026-02-11 10:57:08 - Client email sent? yes
+2026-02-11 11:52:54 - === submit_vehicle.php called ===
+2026-02-11 11:52:54 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-11 11:52:54 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 11:52:54 - Inserted vehicle_requests id=20
+2026-02-11 11:52:54 - FILES vehicleFiles present: {"count":1,"errors":[4]}
+2026-02-11 11:52:54 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/vehicle/20/
+2026-02-11 11:52:54 - Processing file index 0 name= error=4
+2026-02-11 11:52:54 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 11:52:54 - Transaction committed for vehicle_requests id=20
+2026-02-11 11:52:57 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide VEHICLE request — Gage Hart
+2026-02-11 11:53:00 - send_mail success to selekem@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of Tag Renewals
+2026-02-11 11:53:00 - Admin email sent? yes
+2026-02-11 11:53:00 - Client email sent? yes
+2026-02-11 17:55:07 - === submit_license.php called ===
+2026-02-11 17:55:07 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-11 17:55:07 - Inserted license_requests id=13
+2026-02-11 17:55:07 - FILES licenseFiles present: {"count":1,"errors":[4]}
+2026-02-11 17:55:07 - Upload base path: /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/13/
+2026-02-11 17:55:07 - Created upload dir /Applications/MAMP/htdocs/ClearMyRide_NEW/assets/app/../../uploads/license/13/
+2026-02-11 17:55:07 - Processing file index 0 name= error=4
+2026-02-11 17:55:07 - Skipping file () - php upload error: UPLOAD_ERR_NO_FILE
+2026-02-11 17:55:07 - Transaction committed for license_requests id=13
+2026-02-11 17:55:09 - send_mail success to divineojo12345@gmail.com subject=New ClearMyRide LICENSE request — Dustin Fleming
+2026-02-11 17:55:12 - send_mail success to jacycetak@mailinator.com subject=Welcome to ClearMyRide — You're Early to the Future of License Renewals
+2026-02-11 17:55:12 - Admin email sent? yes
+2026-02-11 17:55:12 - Client email sent? yes
+2026-02-12 10:27:51 - === submit_vehicle.php called ===
+2026-02-12 10:27:51 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-12 10:27:51 - Consent not given
+2026-02-12 10:28:17 - === submit_vehicle.php called ===
+2026-02-12 10:28:17 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-12 10:28:17 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-12 10:48:17 - === submit_vehicle.php called ===
+2026-02-12 10:48:17 - _SERVER: {"REQUEST_METHOD":"POST","REQUEST_URI":"\/ClearMyRide_NEW\/assets\/app\/submit_vehicle.php"}
+2026-02-12 10:48:17 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-12 11:02:09 - === submit_license.php called ===
+2026-02-12 11:02:09 - PHP ini: upload_max_filesize=32M, post_max_size=8M, file_uploads=1
+2026-02-12 11:04:08 - === submit_license.php called ===
+2026-02-12 11:04:08 - Inserted customer_requests id=22
+2026-02-12 11:04:08 - Inserted license_requests id=14 with customer_request_id=22
+2026-02-12 11:04:08 - Transaction committed.
+2026-02-12 11:16:36 - === submit_license.php called ===
+2026-02-12 11:16:36 - Inserted customer_requests id=23
+2026-02-12 11:16:36 - Inserted license_requests id=15 with customer_request_id=23
+2026-02-12 11:16:36 - Transaction committed.
+2026-02-12 11:45:52 - === submit_vehicle.php called ===
+2026-02-12 11:45:52 - Inserted customer_requests id=24
+2026-02-12 11:45:52 - Inserted vehicle_requests id=39 with customer_request_id=24
+2026-02-12 11:45:52 - Transaction committed.
+2026-02-12 11:47:55 - === submit_vehicle.php called ===
+2026-02-12 11:47:55 - Inserted customer_requests id=25
+2026-02-12 11:47:55 - Inserted vehicle_requests id=40 with customer_request_id=25
+2026-02-12 11:47:55 - Transaction committed.
+2026-02-12 12:06:23 - === submit_license.php called ===
+2026-02-12 12:06:23 - Inserted customer_requests id=26
+2026-02-12 12:06:23 - Inserted license_requests id=16 with customer_request_id=26
+2026-02-12 12:06:23 - Transaction committed.
+2026-02-12 12:11:15 - === submit_vehicle.php called ===
+2026-02-12 12:11:15 - Inserted customer_requests id=27
+2026-02-12 12:11:15 - Inserted vehicle_requests id=41 with customer_request_id=27
+2026-02-12 12:11:15 - Transaction committed.
+2026-02-12 12:17:40 - === submit_license.php called ===
+2026-02-12 12:17:40 - Inserted customer_requests id=28
+2026-02-12 12:17:40 - Inserted license_requests id=17 with customer_request_id=28
+2026-02-12 12:17:40 - Transaction committed.
+2026-02-12 12:46:50 - === submit_license.php called ===
+2026-02-12 12:46:50 - Inserted customer_requests id=29
+2026-02-12 12:46:50 - Inserted license_requests id=18 with customer_request_id=29
+2026-02-12 12:46:50 - Transaction committed.
+2026-02-12 13:21:43 - === submit_vehicle.php called ===
+2026-02-12 13:22:12 - === submit_vehicle.php called ===
+2026-02-12 13:22:12 - Inserted customer_requests id=30
+2026-02-12 13:22:12 - Inserted vehicle_requests id=42 with customer_request_id=30
+2026-02-12 13:22:12 - Transaction committed.
+2026-02-12 14:22:14 - === submit_license.php called ===
+2026-02-12 14:22:14 - Inserted customer_requests id=31
+2026-02-12 14:22:14 - Inserted license_requests id=19 with customer_request_id=31
+2026-02-12 14:22:14 - Transaction committed.
+2026-02-12 14:25:56 - === submit_license.php called ===
+2026-02-12 14:25:56 - Inserted customer_requests id=32
+2026-02-12 14:25:56 - Inserted license_requests id=20 with customer_request_id=32
+2026-02-12 14:25:56 - Transaction committed.
+2026-02-12 14:26:14 - === submit_license.php called ===
+2026-02-12 14:26:14 - Inserted customer_requests id=33
+2026-02-12 14:26:14 - Inserted license_requests id=21 with customer_request_id=33
+2026-02-12 14:26:14 - Transaction committed.
+2026-02-12 14:28:18 - === submit_license.php called ===
+2026-02-12 14:28:18 - Inserted customer_requests id=34
+2026-02-12 14:28:18 - Inserted license_requests id=22 with customer_request_id=34
+2026-02-12 14:28:18 - Transaction committed.
+2026-02-12 14:44:18 - === submit_license.php called ===
+2026-02-12 14:44:18 - Inserted customer_requests id=35
+2026-02-12 14:44:18 - Inserted license_requests id=23 with customer_request_id=35
+2026-02-12 14:44:18 - Transaction committed.
+2026-02-12 14:51:27 - === submit_license.php called ===
+2026-02-12 14:51:27 - Inserted customer_requests id=36
+2026-02-12 14:51:27 - Inserted license_requests id=24 with customer_request_id=36
+2026-02-12 14:51:27 - Transaction committed.
+2026-02-12 14:53:14 - === submit_license.php called ===
+2026-02-12 14:53:14 - Inserted customer_requests id=37
+2026-02-12 14:53:14 - Inserted license_requests id=25 with customer_request_id=37
+2026-02-12 14:53:14 - Transaction committed.
+2026-02-12 15:05:49 - === submit_license.php called ===
+2026-02-12 15:05:49 - Inserted customer_requests id=38
+2026-02-12 15:05:49 - Inserted license_requests id=26 with customer_request_id=38
+2026-02-12 15:05:49 - Transaction committed.
+2026-02-12 15:06:03 - === submit_license.php called ===
+2026-02-12 15:06:03 - Inserted customer_requests id=39
+2026-02-12 15:06:03 - Inserted license_requests id=27 with customer_request_id=39
+2026-02-12 15:06:03 - Transaction committed.
+2026-02-12 15:52:20 - === submit_license.php called ===
+2026-02-12 15:52:20 - Inserted customer_requests id=40
+2026-02-12 15:52:20 - Inserted license_requests id=28 with customer_request_id=40
+2026-02-12 15:52:20 - Transaction committed.
+2026-02-12 15:56:59 - === submit_license.php called ===
+2026-02-12 15:56:59 - Inserted customer_requests id=41
+2026-02-12 15:56:59 - Inserted license_requests id=29 with customer_request_id=41
+2026-02-12 15:56:59 - Transaction committed.
+2026-02-13 05:41:01 - === submit_license.php called ===
+2026-02-13 05:41:01 - Inserted customer_requests id=42
+2026-02-13 05:41:01 - Inserted license_requests id=30 with customer_request_id=42
+2026-02-13 05:41:01 - Transaction committed.
+2026-02-13 06:06:56 - === submit_license.php called ===
+2026-02-13 06:06:56 - Inserted customer_requests id=43
+2026-02-13 06:06:56 - Inserted license_requests id=31 with customer_request_id=43
+2026-02-13 06:06:56 - Transaction committed.
+2026-02-13 06:42:58 - === submit_vehicle.php called ===
+2026-02-13 06:42:58 - Inserted customer_requests id=44
+2026-02-13 06:42:58 - Inserted vehicle_requests id=43 with customer_request_id=44
+2026-02-13 06:42:58 - Transaction committed.
+2026-02-13 07:17:56 - === submit_vehicle.php called ===
+2026-02-13 07:17:56 - Inserted customer_requests id=45
+2026-02-13 07:17:56 - Inserted vehicle_requests id=44 with customer_request_id=45
+2026-02-13 07:17:56 - Transaction committed.
+2026-02-13 07:25:43 - === submit_vehicle.php called ===
+2026-02-13 07:25:43 - Inserted customer_requests id=46
+2026-02-13 07:25:43 - Inserted vehicle_requests id=45 with customer_request_id=46
+2026-02-13 07:25:43 - Transaction committed.
+2026-02-13 07:30:41 - === submit_vehicle.php called ===
+2026-02-13 07:30:41 - Inserted customer_requests id=47
+2026-02-13 07:30:41 - Inserted vehicle_requests id=46 with customer_request_id=47
+2026-02-13 07:30:41 - Transaction committed.
+2026-02-13 07:38:34 - === submit_license.php called ===
+2026-02-13 07:38:34 - Inserted customer_requests id=48
+2026-02-13 07:38:34 - Inserted license_requests id=32 with customer_request_id=48
+2026-02-13 07:38:34 - Transaction committed.
+2026-02-18 06:38:04 - === submit_vehicle.php called ===
+2026-02-18 06:38:04 - Inserted customer_requests id=49
+2026-02-18 06:38:04 - Inserted vehicle_requests id=47 with customer_request_id=49
+2026-02-18 06:38:04 - Transaction committed.
+2026-02-18 06:38:59 - === submit_vehicle.php called ===
+2026-02-18 06:38:59 - Inserted customer_requests id=50
+2026-02-18 06:38:59 - Inserted vehicle_requests id=48 with customer_request_id=50
+2026-02-18 06:38:59 - Transaction committed.
+2026-02-18 06:40:35 - === submit_vehicle.php called ===
+2026-02-18 06:40:35 - Inserted customer_requests id=51
+2026-02-18 06:40:35 - Inserted vehicle_requests id=49 with customer_request_id=51
+2026-02-18 06:40:35 - Transaction committed.
+2026-02-18 06:42:04 - === submit_vehicle.php called ===
+2026-02-18 06:42:04 - Inserted customer_requests id=52
+2026-02-18 06:42:04 - Inserted vehicle_requests id=50 with customer_request_id=52
+2026-02-18 06:42:04 - Transaction committed.
+2026-02-18 06:42:07 - Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 06:45:15 - === submit_vehicle.php called ===
+2026-02-18 06:45:15 - Inserted customer_requests id=53
+2026-02-18 06:45:15 - Inserted vehicle_requests id=51 with customer_request_id=53
+2026-02-18 06:45:15 - Transaction committed.
+2026-02-18 06:45:17 - Exception: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 06:47:47 - === submit_license.php called ===
+2026-02-18 06:47:47 - Inserted customer_requests id=54
+2026-02-18 06:47:47 - Inserted license_requests id=33 with customer_request_id=54
+2026-02-18 06:47:47 - Transaction committed.
+2026-02-18 06:47:49 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:09:33 - === submit_vehicle.php called ===
+2026-02-18 07:09:53 - === submit_vehicle.php called ===
+2026-02-18 07:09:53 - Inserted customer_requests id=55
+2026-02-18 07:09:53 - Inserted vehicle_requests id=52 with customer_request_id=55
+2026-02-18 07:09:53 - Transaction committed.
+2026-02-18 07:09:56 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:13:48 - === submit_vehicle.php called ===
+2026-02-18 07:13:48 - Inserted customer_requests id=56
+2026-02-18 07:13:48 - Inserted vehicle_requests id=53 with customer_request_id=56
+2026-02-18 07:13:48 - Transaction committed.
+2026-02-18 07:13:51 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:14:13 - === submit_vehicle.php called ===
+2026-02-18 07:14:13 - Inserted customer_requests id=57
+2026-02-18 07:14:13 - Inserted vehicle_requests id=54 with customer_request_id=57
+2026-02-18 07:14:13 - Transaction committed.
+2026-02-18 07:14:16 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:21:09 - === submit_license.php called ===
+2026-02-18 07:21:09 - Inserted customer_requests id=58
+2026-02-18 07:21:09 - Inserted license_requests id=34 with customer_request_id=58
+2026-02-18 07:21:09 - Transaction committed.
+2026-02-18 07:21:12 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:21:24 - === submit_vehicle.php called ===
+2026-02-18 07:21:43 - === submit_license.php called ===
+2026-02-18 07:21:43 - Inserted customer_requests id=59
+2026-02-18 07:21:43 - Inserted license_requests id=35 with customer_request_id=59
+2026-02-18 07:21:43 - Transaction committed.
+2026-02-18 07:21:45 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:25:56 - === submit_license.php called ===
+2026-02-18 07:25:56 - Inserted customer_requests id=60
+2026-02-18 07:25:56 - Inserted license_requests id=36 with customer_request_id=60
+2026-02-18 07:25:56 - Transaction committed.
+2026-02-18 07:25:59 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:26:10 - === submit_license.php called ===
+2026-02-18 07:26:10 - Inserted customer_requests id=61
+2026-02-18 07:26:10 - Inserted license_requests id=37 with customer_request_id=61
+2026-02-18 07:26:10 - Transaction committed.
+2026-02-18 07:26:13 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:26:34 - === submit_vehicle.php called ===
+2026-02-18 07:26:34 - Inserted customer_requests id=62
+2026-02-18 07:26:34 - Inserted vehicle_requests id=55 with customer_request_id=62
+2026-02-18 07:26:35 - Transaction committed.
+2026-02-18 07:26:37 - Email sending failed after successful submission: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'active' in 'where clause'
+2026-02-18 07:59:36 - === submit_license.php called ===
+2026-02-18 07:59:36 - Inserted customer_requests id=63
+2026-02-18 07:59:36 - Inserted license_requests id=38 with customer_request_id=63
+2026-02-18 07:59:36 - Transaction committed.
+2026-02-18 08:00:08 - === submit_license.php called ===
+2026-02-18 08:00:08 - Inserted customer_requests id=64
+2026-02-18 08:00:08 - Inserted license_requests id=39 with customer_request_id=64
+2026-02-18 08:00:08 - Transaction committed.
